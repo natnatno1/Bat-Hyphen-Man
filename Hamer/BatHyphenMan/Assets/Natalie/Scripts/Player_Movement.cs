@@ -5,44 +5,64 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
 
-    CharacterController characterController;
+    public float playerSpeed;
+    public float sprintSpeed = 4f;
+    public float walkSpeed = 2f;
+    public float mouseSensitivity = 2f;
+    public float jumpHeight = 3f;
+    private bool isMoving = false;
+    private bool isSprinting = false;
+    private float yRot;
+    
+    private Rigidbody rigidBody;
 
-    public float speed = 6.0f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-
-    private Vector3 moveDirection = Vector3.zero;
-
-
-    // Start is called before the first frame update
+    // Use this for initialization
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
+
+        playerSpeed = walkSpeed;
+        rigidBody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (characterController.isGrounded)
+
+        yRot += Input.GetAxis("Mouse X") * mouseSensitivity;
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, yRot, transform.localEulerAngles.z);
+
+        isMoving = false;
+
+        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
         {
-            // We are grounded, so recalculate
-            // move direction directly from axes
-
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection *= speed;
-
-            //if (Input.GetButton("Jump"))
-            //{
-            //    moveDirection.y = jumpSpeed;
-            //}
+            //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
+            rigidBody.velocity += transform.right * Input.GetAxisRaw("Horizontal") * playerSpeed;
+            isMoving = true;
+        }
+        if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+        {
+            //transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
+            rigidBody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * playerSpeed;
+            isMoving = true;
         }
 
-        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
-        // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-        // as an acceleration (ms^-2)
-        moveDirection.y -= gravity * Time.deltaTime;
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    transform.Translate(Vector3.up * jumpHeight);
+        //}
 
-        // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
+       // if (Input.GetAxisRaw("Sprint") > 0f)
+       //{
+       //     playerSpeed = sprintSpeed;
+       //     isSprinting = true;
+       // }
+       // else if (Input.GetAxisRaw("Sprint") < 1f)
+       // {
+       //     playerSpeed = walkSpeed;
+       //     isSprinting = false;
+       // }
+        
+
     }
 }
