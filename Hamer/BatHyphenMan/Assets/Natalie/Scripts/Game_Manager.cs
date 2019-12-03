@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Game_Manager : MonoBehaviour
 {
     public Text StatusReport;
+    public Text HealthStatus;
+    public int Health;
     public List<string> Inventory = new List<string>();
     public float StatusReportTimer;
+    public bool Daytime;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        StatusReport = GetComponentInChildren<Text>();
+        StatusReport = GameObject.Find("Status_Report").GetComponent<Text>();
         StatusReport.text = "";
+        HealthStatus = GameObject.Find("Health").GetComponent<Text>();
+        Daytime = false;
     }
 
     // Update is called once per frame
@@ -25,7 +36,14 @@ public class Game_Manager : MonoBehaviour
         {
             StatusReport.text = "";
         }
-        
+
+        HealthStatus.text = ("Health: " + Health);
+
+        if (Health <= 0)
+        {
+            SceneManager.LoadScene(1);
+            Health = 10;
+        }
     }
     
 }
