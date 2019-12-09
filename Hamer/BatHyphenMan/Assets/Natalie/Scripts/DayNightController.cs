@@ -11,13 +11,10 @@ public class DayNightController : MonoBehaviour
     [HideInInspector]
     public float timeMultiplier = 1f;
 
-    public Game_Manager GM;
-
     float sunInitialIntensity;
 
     void Start()
     {
-        GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         sunInitialIntensity = sun.intensity;
     }
 
@@ -31,7 +28,6 @@ public class DayNightController : MonoBehaviour
         {
             currentTimeOfDay = 0;
         }
-        
     }
 
     void UpdateSun()
@@ -42,17 +38,14 @@ public class DayNightController : MonoBehaviour
         if (currentTimeOfDay <= 0.23f || currentTimeOfDay >= 0.75f)
         {
             intensityMultiplier = 0;
-            GM.Daytime = false;
         }
         else if (currentTimeOfDay <= 0.25f)
         {
             intensityMultiplier = Mathf.Clamp01((currentTimeOfDay - 0.23f) * (1 / 0.02f));
-            GM.Daytime = true;
         }
         else if (currentTimeOfDay >= 0.73f)
         {
             intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - 0.73f) * (1 / 0.02f)));
-            GM.Daytime = false;
         }
 
         sun.intensity = sunInitialIntensity * intensityMultiplier;

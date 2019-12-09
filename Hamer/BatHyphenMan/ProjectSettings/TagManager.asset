@@ -6,9 +6,6 @@ TagManager:
   tags:
   - Item/Key
   - GameManager
-  - EnemyWeapon
-  - Item/Health
-  - PlayerWeapon
   layers:
   - Default
   - TransparentFX

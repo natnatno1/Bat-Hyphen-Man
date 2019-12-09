@@ -13,22 +13,15 @@ public class Player_Movement : MonoBehaviour
     private bool isMoving = false;
     private bool isSprinting = false;
     private float yRot;
-
-    public float AttackCooldown;
-
-    public Animator Anim;
-
-    public Game_Manager GM;
-
+    
     private Rigidbody rigidBody;
 
     // Use this for initialization
     void Start()
     {
-        GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+
         playerSpeed = walkSpeed;
         rigidBody = GetComponent<Rigidbody>();
-        Anim = GetComponentInChildren<Animator>();
 
     }
 
@@ -70,44 +63,6 @@ public class Player_Movement : MonoBehaviour
        //     isSprinting = false;
        // }
         
-        if (GM.Health < 0)
-        {
-            GM.Health = 0;
-        }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Anim.GetBool("Attack?") == false)
-            {
-                Anim.SetBool("Attack?", true);
-
-                AttackCooldown = 0.5f;
-            }
-        }
-
-        if (Anim.GetBool("Attack?") == true)
-        {
-            AttackCooldown -= Time.deltaTime;
-
-            if (AttackCooldown < 0)
-            {
-                Anim.SetBool("Attack?", false);
-            }
-        }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "EnemyWeapon")
-        {
-            GM.Health -= 1;
-        }
-
-        if (other.gameObject.tag == "Item/Health")
-        {
-            GM.Health += 25;
-        }
-    }
-    
-
 }
