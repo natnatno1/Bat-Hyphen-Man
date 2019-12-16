@@ -35,10 +35,10 @@ public class Sunlight : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Player")
             {
-                if (GM.Daytime == true)
-                {
-                    Debug.LogFormat("PLAYAAA");
-                }
+              //  if (GM.Daytime == true)
+             //   {
+               //     Debug.LogFormat("PLAYAAA");
+              //  }
             }
 
         }
