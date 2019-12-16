@@ -35,65 +35,109 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        yRot += Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, yRot, transform.localEulerAngles.z);
-
-        isMoving = false;
-
-        if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
+        if (GM.IsBat == false)
         {
-            //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
-            rigidBody.velocity += transform.right * Input.GetAxisRaw("Horizontal") * playerSpeed;
-            isMoving = true;
+            yRot += Input.GetAxis("Mouse X") * mouseSensitivity;
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, yRot, transform.localEulerAngles.z);
+
+            isMoving = false;
+
+            if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
+            {
+                //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
+                rigidBody.velocity += transform.right * Input.GetAxisRaw("Horizontal") * playerSpeed;
+                isMoving = true;
+            }
+            if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+            {
+                //transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
+                rigidBody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * playerSpeed;
+                isMoving = true;
+            }
+
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    transform.Translate(Vector3.up * jumpHeight);
+            //}
+
+            // if (Input.GetAxisRaw("Sprint") > 0f)
+            //{
+            //     playerSpeed = sprintSpeed;
+            //     isSprinting = true;
+            // }
+            // else if (Input.GetAxisRaw("Sprint") < 1f)
+            // {
+            //     playerSpeed = walkSpeed;
+            //     isSprinting = false;
+            // }
+
+            if (GM.Health < 0)
+            {
+                GM.Health = 0;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (Anim.GetBool("Attack?") == false)
+                {
+                    Anim.SetBool("Attack?", true);
+
+                    AttackCooldown = 0.5f;
+                }
+            }
+
+            if (Anim.GetBool("Attack?") == true)
+            {
+                AttackCooldown -= Time.deltaTime;
+
+                if (AttackCooldown < 0)
+                {
+                    Anim.SetBool("Attack?", false);
+                }
+            }
         }
-        if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+
+        else if (GM.IsBat == true)
         {
-            //transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
-            rigidBody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * playerSpeed;
-            isMoving = true;
+            gameObject.transform.rotation = GM.PlayerRot.rotation;
+
+            yRot += Input.GetAxis("Mouse X") * mouseSensitivity;
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, yRot, transform.localEulerAngles.z);
+
+            isMoving = false;
+
+            if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
+            {
+                //transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * playerSpeed);
+                rigidBody.velocity += transform.right * Input.GetAxisRaw("Horizontal") * (playerSpeed / 3);
+                isMoving = true;
+            }
+            if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+            {
+                //transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * playerSpeed);
+                rigidBody.velocity += transform.forward * Input.GetAxisRaw("Vertical") * (playerSpeed / 3);
+                isMoving = true;
+            }
+
+            if (GM.Health < 0)
+            {
+                GM.Health = 0;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                rigidBody.velocity += transform.up * (playerSpeed);
+                isMoving = true;
+            }
+
+            else if (Input.GetMouseButtonDown(1))
+            {
+                rigidBody.velocity -= transform.up * (playerSpeed);
+                isMoving = true;
+            }
+
         }
-
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    transform.Translate(Vector3.up * jumpHeight);
-        //}
-
-       // if (Input.GetAxisRaw("Sprint") > 0f)
-       //{
-       //     playerSpeed = sprintSpeed;
-       //     isSprinting = true;
-       // }
-       // else if (Input.GetAxisRaw("Sprint") < 1f)
-       // {
-       //     playerSpeed = walkSpeed;
-       //     isSprinting = false;
-       // }
         
-        if (GM.Health < 0)
-        {
-            GM.Health = 0;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Anim.GetBool("Attack?") == false)
-            {
-                Anim.SetBool("Attack?", true);
-
-                AttackCooldown = 0.5f;
-            }
-        }
-
-        if (Anim.GetBool("Attack?") == true)
-        {
-            AttackCooldown -= Time.deltaTime;
-
-            if (AttackCooldown < 0)
-            {
-                Anim.SetBool("Attack?", false);
-            }
-        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -11,7 +11,15 @@ using UnityEngine;
         public GameObject player;
         private Vector3 playerPos;
 
-        void Update()
+    private void Start()
+    {
+        //player = GameObject.Find("Player").GetComponent<GameObject>();
+    }
+
+
+
+
+    void Update()
         {
 
         

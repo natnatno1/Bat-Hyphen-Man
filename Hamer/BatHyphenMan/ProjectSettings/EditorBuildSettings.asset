@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Natalie/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/VL/Level Design stuff.unity
+    guid: a3a93b28b49755f49885d5df5bd736cb
   - enabled: 1
     path: Assets/Natalie/Scenes/GameOver.unity
     guid: 69e74ee6b07e42b4aafedbbcc9cdb142
+  - enabled: 1
+    path: Assets/VL/Win.unity
+    guid: ed8ab3116d68cf74ab1555f6f9e27b10
   m_configObjects: {}

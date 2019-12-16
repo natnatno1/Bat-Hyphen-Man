@@ -15,11 +15,17 @@ public class Transform_into_bat : MonoBehaviour
     public int change_bat;
     public int the_cooldown;
 
+    public Game_Manager GM;
+    
+
     // Start is called before the first frame update
     void Start()
     {
+
         //Vampire = GameObject.FindGameObjectWithTag("Vampire");
         //Bat = GameObject.FindGameObjectWithTag("Bat");
+
+        GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
 
         Bat.SetActive(false);
 
@@ -29,24 +35,29 @@ public class Transform_into_bat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(Vampire.activeSelf)
         {
             Vampire_here = true;
+            GM.IsBat = true;
         }
 
         if (!Vampire.activeSelf)
         {
             Vampire_here = false;
+            GM.IsBat = false;
         }
         
         if (Bat.activeSelf)
         {
             Bat_here = true;
+            GM.IsBat = true;
         }
 
         if (!Bat.activeSelf)
         {
             Bat_here = false;
+            GM.IsBat = false;
         }
 
 

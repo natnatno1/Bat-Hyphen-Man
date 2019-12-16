@@ -13,10 +13,28 @@ public class Game_Manager : MonoBehaviour
     public float StatusReportTimer;
     public bool Daytime;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
+    public bool IsBat;
+
+    public GameObject Player;
+
+    public Transform PlayerRot;
+
+    //public static Game_Manager instance;
+
+   // private void Awake()
+    //{
+     //   DontDestroyOnLoad(this.gameObject);
+
+     //   if (instance == null)
+      //  {
+      //      instance = this;
+      ///  }
+      //  else
+      //  {
+      //      Destroy(this.gameObject);
+          //  return;
+       // }
+   // }
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +43,31 @@ public class Game_Manager : MonoBehaviour
         StatusReport.text = "";
         HealthStatus = GameObject.Find("Health").GetComponent<Text>();
         Daytime = false;
+        IsBat = false;
+
+        Player = GameObject.Find("Player");
+
+        PlayerRot = Player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetSceneByBuildIndex(1) == SceneManager.GetActiveScene())
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        PlayerRot = Player.transform;
+
         StatusReportTimer -= Time.deltaTime;
 
         if (StatusReportTimer < 0)
@@ -44,6 +82,7 @@ public class Game_Manager : MonoBehaviour
             SceneManager.LoadScene(1);
             Health = 10;
         }
+        
     }
     
 }

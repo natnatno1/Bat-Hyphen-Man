@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class Door : MonoBehaviour
             {
                 if (GM.Inventory.Contains("" + KeyNeeded))
                 {
+                    SceneManager.LoadScene(2);
+
                     if (Unlocked == false)
                     {
                         GM.StatusReportTimer = 5;
