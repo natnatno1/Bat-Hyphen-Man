@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     Animator anim;
     public float speed = 2.0f;
+    public float rotationsPerMinute = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,21 @@ public class Movement : MonoBehaviour
         else
         {
             anim.SetBool("turnRight", false);
+        }
+
+
+
+        if(anim.GetBool("runForward") == true)
+        {
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Rotate(0, 6 * rotationsPerMinute * Time.deltaTime, 0);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Rotate(0, -6 * rotationsPerMinute * Time.deltaTime, 0);
+            }
         }
     }
 }
