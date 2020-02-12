@@ -8,12 +8,14 @@ public class Movement : MonoBehaviour
     Animator anim;
     public float speed = 2.0f;
     public float rotationsPerMinute = 10;
+    public Game_Manager GM;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+        rb = GameObject.Find("HumanForm").GetComponent<Rigidbody>();
+        anim = GameObject.Find("HumanForm").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,8 +58,7 @@ public class Movement : MonoBehaviour
         }
 
 
-
-        if(anim.GetBool("runForward") == true)
+        if (anim.GetBool("runForward") == true)
         {
             if (Input.GetKey(KeyCode.D))
             {
@@ -69,5 +70,20 @@ public class Movement : MonoBehaviour
                 transform.Rotate(0, -6 * rotationsPerMinute * Time.deltaTime, 0);
             }
         }
+
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EnemyWeapon")
+        {
+            GM.Health -= 1;
+        }
+
+        if (other.gameObject.tag == "Item/Health")
+        {
+            GM.Health += 25;
+        }
+    }
+
 }

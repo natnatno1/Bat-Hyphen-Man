@@ -45,7 +45,7 @@ public class Game_Manager : MonoBehaviour
         Daytime = false;
         IsBat = false;
 
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("Vampire");
 
         PlayerRot = Player.transform;
     }
@@ -61,9 +61,22 @@ public class Game_Manager : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (IsBat == true)
+            {
+                IsBat = false;
+            }
+
+            else if (IsBat == false)
+            {
+                IsBat = true;
+            }
         }
 
         PlayerRot = Player.transform;
