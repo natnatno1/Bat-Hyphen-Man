@@ -1603,7 +1603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485652852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.300003, y: 0.92999995, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 327719501}
@@ -3477,6 +3477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899846745}
   - component: {fileID: 899846744}
+  - component: {fileID: 899846746}
   m_Layer: 0
   m_Name: BatManager
   m_TagString: Untagged
@@ -3491,7 +3492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899846743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c696baa8ef1c98b46baf75f4a77029c4, type: 3}
   m_Name: 
@@ -3515,6 +3516,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &899846746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899846743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355239a4d3149754ab38558fb45eb2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vampire: {fileID: 1946394287}
+  Bat: {fileID: 1810882018}
+  Vampire_Is_Active: 0
+  Bat_Is_Active: 0
 --- !u!1001 &911787656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4631,11 +4648,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 453971943844325670, guid: 9da576747f1534b45b46288062a9cea7,
-        type: 3}
-      propertyPath: AttackCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 453971943640930271, guid: 9da576747f1534b45b46288062a9cea7,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -4660,6 +4672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 453971943844325670, guid: 9da576747f1534b45b46288062a9cea7,
+        type: 3}
+      propertyPath: AttackCooldown
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 453971943640930268, guid: 9da576747f1534b45b46288062a9cea7,
         type: 3}
@@ -6045,8 +6062,8 @@ GameObject:
   - component: {fileID: 1810882021}
   - component: {fileID: 1810882020}
   - component: {fileID: 1810882019}
-  - component: {fileID: 1810882023}
   - component: {fileID: 1810882024}
+  - component: {fileID: 1810882025}
   m_Layer: 0
   m_Name: Batdude
   m_TagString: Untagged
@@ -6128,26 +6145,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1810882023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810882018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010eaf59e05cc964ab99285ff5366ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 0
-  sprintSpeed: 4
-  walkSpeed: 2
-  mouseSensitivity: 2
-  jumpHeight: 3
-  AttackCooldown: 0
-  Anim: {fileID: 0}
-  GM: {fileID: 0}
 --- !u!54 &1810882024
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6158,12 +6155,27 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1810882025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810882018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133eb681fa227ac48853d3def1ba1bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed_forward_back: 20
+  Speed_up_down: 10
+  Speed_rotate: 3
 --- !u!4 &1830445200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 488584, guid: b0ad42c496536b34ba2c5285bc5de2de,
