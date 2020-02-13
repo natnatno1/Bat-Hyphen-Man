@@ -57,6 +57,15 @@ public class Movement : MonoBehaviour
             anim.SetBool("turnRight", false);
         }
 
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("attacking?", true);
+        }
+        else
+        {
+            anim.SetBool("attacking?", false);
+        }
+
 
         if (anim.GetBool("runForward") == true)
         {
