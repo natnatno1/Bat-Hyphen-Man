@@ -12,14 +12,14 @@ public class Enemy_Behaviour : MonoBehaviour
     public float DangerZone;
     public Animator Anim;
     public Vector3 OldEularAngles;
-    public Game_Manager GMScript;
+    public Game_Manager GM;
     public SpriteRenderer Splat;
     public int EnemyHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
     }
 
     // Update is called once per frame
@@ -42,7 +42,10 @@ public class Enemy_Behaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerWeapon")
         {
-            EnemyHealth -= 1;
+            if (GM.Attacking == true)
+            {
+                EnemyHealth -= 1;
+            }
         }
     }
 

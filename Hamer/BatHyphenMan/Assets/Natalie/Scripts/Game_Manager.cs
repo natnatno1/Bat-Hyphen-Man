@@ -13,6 +13,8 @@ public class Game_Manager : MonoBehaviour
     public float StatusReportTimer;
     public bool Daytime;
 
+    public bool Attacking;
+
     public bool IsBat;
 
     public GameObject Player;
