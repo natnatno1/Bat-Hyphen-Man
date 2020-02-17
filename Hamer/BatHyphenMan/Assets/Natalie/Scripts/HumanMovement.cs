@@ -2,38 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class HumanMovement : MonoBehaviour
 {
+    public float horizontalSpeed = 2.0F;
+    public float verticalSpeed = 2.0F;
+    public float RunSpeed = 1;
+    public float gravity = -5;
+    float CurrentSpeedUp = 0;
+    float CurrentSpeedDown = 0;
+    float CurrentSpeedX = 0;
+    float velocityY = 0;
+
     Rigidbody rb;
     Animator anim;
     public float speed = 2.0f;
     public float rotationsPerMinute = 10;
     public Game_Manager GM;
 
-    // Start is called before the first frame update
+    public CharacterController controller;
+
     void Start()
     {
+        controller = GetComponent<CharacterController>();
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         rb = GameObject.Find("HumanForm").GetComponent<Rigidbody>();
         anim = GameObject.Find("HumanForm").GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input = input.normalized;
+
+        Vector3 temp = Vector3.zero;
+
+        if (input.z == 1)
         {
             anim.SetBool("walkForward", true);
         }
+
         else
         {
             anim.SetBool("walkForward", false);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (input.z == -1)
         {
             anim.SetBool("walkBackward", true);
         }
+
         else
         {
             anim.SetBool("walkBackward", false);
@@ -52,6 +69,7 @@ public class Movement : MonoBehaviour
         {
             anim.SetBool("turnLeft", true);
         }
+
         else
         {
             anim.SetBool("turnLeft", false);
@@ -76,20 +94,40 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (anim.GetBool("runForward") == true)
-        {
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(0, 6 * rotationsPerMinute * Time.deltaTime, 0);
-            }
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.Rotate(0, -6 * rotationsPerMinute * Time.deltaTime, 0);
-            }
+
+
+       // Vector3 velocity = temp * RunSpeed;
+       // velocity.y = velocityY;
+
+      //  controller.Move(velocity * Time.deltaTime);
+
+        //NOT REALISTIC ROTATIONS
+
+        //You may have to move the '-' sign to the other one (- means opposite) E.G. - Negative so I THINK -Vector.up is left. Could be wrong though.
+
+        float h = horizontalSpeed * Input.GetAxis("Mouse X");
+        transform.Rotate(0, h, 0);
+
+        if (h < 0)
+        {
+            anim.SetBool("TurningLeft", true);
         }
 
+        else
+        {
+            anim.SetBool("TurningLeft", false);
+        }
 
+        if (h > 0)
+        {
+            anim.SetBool("TurningRight", true);
+        }
+
+        else
+        {
+            anim.SetBool("TurningRight", false);
+        }
 
     }
 
