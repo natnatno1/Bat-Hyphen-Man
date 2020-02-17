@@ -30,6 +30,15 @@ public class Movement : MonoBehaviour
             anim.SetBool("walkForward", false);
         }
 
+        if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("walkBackward", true);
+        }
+        else
+        {
+            anim.SetBool("walkBackward", false);
+        }
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             anim.SetBool("runForward", true);
