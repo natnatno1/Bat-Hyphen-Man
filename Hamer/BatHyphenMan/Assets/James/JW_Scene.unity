@@ -494,6 +494,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: -3220319501169496967, guid: b588340000575004cb052e91f5e36c1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.2907048
+      objectReference: {fileID: 0}
+    - target: {fileID: -3220319501169496967, guid: b588340000575004cb052e91f5e36c1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -11.341973
+      objectReference: {fileID: 0}
+    - target: {fileID: -3220319501169496967, guid: b588340000575004cb052e91f5e36c1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -13.036946
+      objectReference: {fileID: 0}
     - target: {fileID: -9147868553947026619, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -793,21 +808,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.8723426
-      objectReference: {fileID: 0}
-    - target: {fileID: -3220319501169496967, guid: b588340000575004cb052e91f5e36c1c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.2907048
-      objectReference: {fileID: 0}
-    - target: {fileID: -3220319501169496967, guid: b588340000575004cb052e91f5e36c1c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -11.341973
-      objectReference: {fileID: 0}
-    - target: {fileID: -3220319501169496967, guid: b588340000575004cb052e91f5e36c1c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -13.036946
       objectReference: {fileID: 0}
     - target: {fileID: -3167575404677891443, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
@@ -2189,6 +2189,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 380579141}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463681838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463681837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f85e0b1aac111419e9349177f72222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy_Health_Points: 0
+  Enemy_anim: {fileID: 1463681840}
+  Player_anim: {fileID: 8444725302759045321}
 --- !u!114 &1463681839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2204,6 +2219,7 @@ MonoBehaviour:
   Player: {fileID: 6888900344330959278}
   Enemy_chase_distance: 1.5
   anim: {fileID: 1463681840}
+  CanEnemyAttack: 0
 --- !u!95 &1463681840 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: b588340000575004cb052e91f5e36c1c,
@@ -2744,7 +2760,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2493046526339567892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -15.18}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6888900344330959278}
@@ -3014,9 +3030,9 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6817184623784699796}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.4
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -4350,7 +4366,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -1912818108897965416, guid: b5eb4c874e888dd4097e2c55d2cf2312, type: 3}
 --- !u!1 &6675310678712573909
@@ -4498,13 +4514,28 @@ GameObject:
   - component: {fileID: 2155514783203895668}
   - component: {fileID: 449399854156228570}
   - component: {fileID: 2228266792696140011}
+  - component: {fileID: 6817184623784699797}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!136 &6817184623784699797
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817184623784699796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!4 &6885152449290371678
 Transform:
   m_ObjectHideFlags: 0
