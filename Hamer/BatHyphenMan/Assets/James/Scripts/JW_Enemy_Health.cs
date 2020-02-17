@@ -21,7 +21,7 @@ public class JW_Enemy_Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Enemy_Health_Points >= 3)
+        if (Enemy_Health_Points >= 10)
         {
             Enemy_anim.SetBool("IsDead", true);
             Invoke("DestroyEnemy", 2);
