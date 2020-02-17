@@ -21,7 +21,7 @@ public class JW_Enemy_Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Enemy_Health_Points >= 10)
+        if (Enemy_Health_Points >= 5)
         {
             Enemy_anim.SetBool("IsDead", true);
             Invoke("DestroyEnemy", 2);
@@ -30,14 +30,6 @@ public class JW_Enemy_Health : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.tag == "PlayerWeapon")
-        //{
-        //    if (!Player_anim.GetCurrentAnimatorStateInfo(0).IsName("attacking?"))
-        //    {
-        //        Enemy_Health_Points += 1;
-        //    }
-        //}
-
         if (other.gameObject.tag == "PlayerWeapon")
         {
             if (GM.Attacking == true)
@@ -53,3 +45,7 @@ public class JW_Enemy_Health : MonoBehaviour
     }
 
 }
+
+
+//    if (!Player_anim.GetCurrentAnimatorStateInfo(0).IsName("attacking?"))
+

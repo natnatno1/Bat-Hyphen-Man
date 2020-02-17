@@ -24,7 +24,7 @@ public class JW_Enemy_Movement : MonoBehaviour
         {
             anim.SetBool("IsAttacking", false);
             anim.SetBool("IsWalking", true);
-            transform.position += transform.forward * Time.deltaTime * 1;
+            transform.position += transform.forward * Time.deltaTime * 2;
         }
         if (Vector3.Distance(transform.position, Player.transform.position) < Enemy_chase_distance)
         {

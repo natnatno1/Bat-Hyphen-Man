@@ -129,13 +129,29 @@ public class HumanMovement : MonoBehaviour
             anim.SetBool("TurningRight", false);
         }
 
+        if (Input.GetMouseButton(1))
+        {
+            anim.SetBool("Blocking", true);
+        }
+        else
+        {
+            anim.SetBool("Blocking", false);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "EnemyWeapon")
         {
-            GM.Health -= 1;
+            if (GM.Blocking == true)
+            {
+                GM.Health -= 0;
+            }
+            if (GM.Blocking == false)
+            {
+                GM.Health -= 1;
+            }
         }
 
         if (other.gameObject.tag == "Item/Health")

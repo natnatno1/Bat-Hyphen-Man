@@ -14,6 +14,7 @@ public class Game_Manager : MonoBehaviour
     public bool Daytime;
 
     public bool Attacking;
+    public bool Blocking;
 
     public bool IsBat;
 
