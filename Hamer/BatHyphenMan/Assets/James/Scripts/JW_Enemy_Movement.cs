@@ -12,7 +12,6 @@ public class JW_Enemy_Movement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        Player = GameObject.Find("Vampire").GetComponent<Transform>();
     }
 
     // Update is called once per frame
