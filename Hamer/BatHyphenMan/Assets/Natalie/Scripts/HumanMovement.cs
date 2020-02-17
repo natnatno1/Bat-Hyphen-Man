@@ -108,6 +108,27 @@ public class HumanMovement : MonoBehaviour
 
         float h = horizontalSpeed * Input.GetAxis("Mouse X");
         transform.Rotate(0, h, 0);
+
+        if (h < 0)
+        {
+            anim.SetBool("TurningLeft", true);
+        }
+
+        else
+        {
+            anim.SetBool("TurningLeft", false);
+        }
+
+        if (h > 0)
+        {
+            anim.SetBool("TurningRight", true);
+        }
+
+        else
+        {
+            anim.SetBool("TurningRight", false);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)

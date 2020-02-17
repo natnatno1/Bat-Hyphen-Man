@@ -399,6 +399,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8511729815251829395, guid: c7d65edf57664ef4cb18c1ce151b1691,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8511729815251829407, guid: c7d65edf57664ef4cb18c1ce151b1691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1486,6 +1491,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511729815251829395, guid: c7d65edf57664ef4cb18c1ce151b1691,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8511729815251829407, guid: c7d65edf57664ef4cb18c1ce151b1691,
         type: 3}
@@ -4017,6 +4027,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8511729815251829395, guid: c7d65edf57664ef4cb18c1ce151b1691,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8511729815251829407, guid: c7d65edf57664ef4cb18c1ce151b1691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4176,6 +4191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallThin (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552809255756430786, guid: 15e9fac12e659f84686b691cdd66ab99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3552809255756430798, guid: 15e9fac12e659f84686b691cdd66ab99,
         type: 3}
@@ -6390,12 +6410,12 @@ PrefabInstance:
     - target: {fileID: 4995238406379152301, guid: 99431c2bc3d22374fab3a98348ee9810,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.18
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 4995238406379152301, guid: 99431c2bc3d22374fab3a98348ee9810,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.45
+      value: -7.06
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4995238406737090827, guid: 99431c2bc3d22374fab3a98348ee9810, type: 3}
@@ -8257,6 +8277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WallWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086605897039175562, guid: f983101b65c8761459624532e3b77847,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2491264258131742287, guid: f983101b65c8761459624532e3b77847,
         type: 3}
