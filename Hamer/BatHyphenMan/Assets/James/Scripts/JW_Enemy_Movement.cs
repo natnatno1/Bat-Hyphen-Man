@@ -12,7 +12,7 @@ public class JW_Enemy_Movement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        Player = GameObject.Find("Vampire").GetComponent<Transform>();
+        Player = GameObject.Find("HumanForm").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class JW_Enemy_Movement : MonoBehaviour
             anim.SetBool("IsWalking", true);
             transform.position += transform.forward * Time.deltaTime * 1;
         }
-        else
+        if (Vector3.Distance(transform.position, Player.transform.position) < Enemy_chase_distance)
         {
             anim.SetBool("IsWalking", false);
             transform.position += transform.forward * Time.deltaTime * 0;
