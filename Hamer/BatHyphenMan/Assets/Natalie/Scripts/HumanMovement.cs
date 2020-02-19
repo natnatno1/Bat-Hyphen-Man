@@ -20,9 +20,11 @@ public class HumanMovement : MonoBehaviour
     public Game_Manager GM;
 
     public CharacterController controller;
+    public bool PlayerCanLoseHealth;
 
     void Start()
     {
+        PlayerCanLoseHealth = true;
         controller = GetComponent<CharacterController>();
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         rb = GameObject.Find("HumanForm").GetComponent<Rigidbody>();
@@ -137,20 +139,29 @@ public class HumanMovement : MonoBehaviour
         {
             anim.SetBool("Blocking", false);
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "EnemyWeapon")
         {
-            if (GM.Blocking == true)
+            if (GM.EnemyAttacking == true)
             {
-                GM.Health -= 0;
-            }
-            if (GM.Blocking == false)
-            {
-                GM.Health -= 1;
+                if (GM.Blocking == true)
+                {
+                    GM.Health -= 0;
+
+                }
+
+                if (GM.Blocking == false)
+                {
+                    if (PlayerCanLoseHealth == true)
+                    {
+                        GM.Health -= 1;
+                        PlayerCanLoseHealth = false;
+                        Invoke("PlayerDamageReset", 0.5f);
+                    }
+                }
             }
         }
 
@@ -158,6 +169,11 @@ public class HumanMovement : MonoBehaviour
         {
             GM.Health += 25;
         }
+    }
+
+    void PlayerDamageReset()
+    {
+        PlayerCanLoseHealth = true;
     }
 
 }

@@ -15,6 +15,7 @@ public class Game_Manager : MonoBehaviour
 
     public bool Attacking;
     public bool Blocking;
+    public bool EnemyAttacking;
 
     public bool IsBat;
 
