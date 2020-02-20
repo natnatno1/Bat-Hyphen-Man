@@ -9,6 +9,7 @@ public class JW_Enemy_Health : MonoBehaviour
     public Animator Player_anim;
     public Game_Manager GM;
     public bool EnemyCanLoseHealth;
+    public Transform EnemyHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +39,10 @@ public class JW_Enemy_Health : MonoBehaviour
             {
                 if (EnemyCanLoseHealth == true)
                 {
+                    EnemyHealth.transform.localScale -= new Vector3(0f, 3f, 0f);
                     Enemy_Health_Points += 1;
                     EnemyCanLoseHealth = false;
-                    Invoke("EnemyDamageReset", 0.5f);
+                    Invoke("EnemyDamageReset", 0.8f);
 
                     if (Enemy_Health_Points < 10)
                     {
