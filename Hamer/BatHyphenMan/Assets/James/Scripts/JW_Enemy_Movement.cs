@@ -10,6 +10,9 @@ public class JW_Enemy_Movement : MonoBehaviour
     public Animator Enemy_anim;
     public Animator Player_anim;
 
+    private float nextActionTime = 0.0f;
+    public float period = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,19 @@ public class JW_Enemy_Movement : MonoBehaviour
         {
             Enemy_anim.SetBool("IsWalking", false);
             transform.position += transform.forward * Time.deltaTime * 0;
-            Enemy_anim.SetBool("IsAttacking", true);
+
+            if (Time.time > nextActionTime)
+            {
+                nextActionTime += period;
+                Enemy_anim.SetBool("IsAttacking", true);
+                Invoke("StopAttack", 0.3f);
+
+            }
         }
+    }
+
+    void StopAttack()
+    {
+        Enemy_anim.SetBool("IsAttacking", false);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JW_Enemy_Health : MonoBehaviour
 {
-    public int Enemy_Health_Points;
+    public int Enemy_Health_Points = 3;
     public Animator Enemy_anim;
     public Animator Player_anim;
     public Game_Manager GM;
@@ -15,7 +15,6 @@ public class JW_Enemy_Health : MonoBehaviour
     void Start()
     {
         EnemyCanLoseHealth = true;
-        Enemy_Health_Points = 0;
         Enemy_anim = GetComponent<Animator>();
         Player_anim = GameObject.Find("Vampire").GetComponentInChildren<Animator>();
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
@@ -24,7 +23,7 @@ public class JW_Enemy_Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Enemy_Health_Points >= 5)
+        if (Enemy_Health_Points < 1)
         {
             Enemy_anim.SetBool("IsDead", true);
             Invoke("DestroyEnemy", 2);
@@ -39,12 +38,12 @@ public class JW_Enemy_Health : MonoBehaviour
             {
                 if (EnemyCanLoseHealth == true)
                 {
-                    EnemyHealth.transform.localScale -= new Vector3(0f, 3f, 0f);
-                    Enemy_Health_Points += 1;
+                    EnemyHealth.transform.localScale -= new Vector3(0f, 5f, 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
+                    Enemy_Health_Points -= 1;
                     EnemyCanLoseHealth = false;
                     Invoke("EnemyDamageReset", 0.8f);
 
-                    if (Enemy_Health_Points < 10)
+                    if (Enemy_Health_Points >= 1)
                     {
                         Enemy_anim.SetBool("IsHit", true);
                         Invoke("StopStaggering", 0.3f);
@@ -71,8 +70,9 @@ public class JW_Enemy_Health : MonoBehaviour
 
     void StopStaggering()
     {
-        Enemy_anim.SetBool("ClashedSword", false);
         Enemy_anim.SetBool("IsHit", false);
+
+        Enemy_anim.SetBool("ClashedSword", false);
     }
 
     void EnemyDamageReset()
