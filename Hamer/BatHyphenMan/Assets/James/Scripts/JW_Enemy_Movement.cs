@@ -11,7 +11,7 @@ public class JW_Enemy_Movement : MonoBehaviour
     public Animator Player_anim;
 
     private float nextActionTime = 0.0f;
-    public float period = 5f;
+    public int period;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class JW_Enemy_Movement : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         Enemy_anim = GetComponent<Animator>();
         Player_anim = GameObject.Find("Vampire").GetComponentInChildren<Animator>();
+        period = Random.Range(4, 8);
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class JW_Enemy_Movement : MonoBehaviour
             {
                 nextActionTime += period;
                 Enemy_anim.SetBool("IsAttacking", true);
-                Invoke("StopAttack", 0.3f);
+                Invoke("StopAttack", 0.2f);
 
             }
         }
