@@ -32,12 +32,12 @@ public class JW_Enemy_Movement : MonoBehaviour
         {
             Enemy_anim.SetBool("IsAttacking", false);
             Enemy_anim.SetBool("IsWalking", true);
-            transform.position += transform.forward * Time.deltaTime * 2;
+            transform.position += transform.forward * Time.deltaTime * 1.5f;
         }
         if (Vector3.Distance(transform.position, Player.transform.position) < Enemy_chase_distance)
         {
             Enemy_anim.SetBool("IsWalking", false);
-            transform.position += transform.forward * Time.deltaTime * 0;
+            transform.position += transform.forward * Time.deltaTime * 0f;
 
             if (Time.time > nextActionTime)
             {

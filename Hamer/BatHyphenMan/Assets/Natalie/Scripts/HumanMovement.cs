@@ -67,6 +67,15 @@ public class HumanMovement : MonoBehaviour
             anim.SetBool("runForward", false);
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetBool("runBackward", true);
+        }
+        else
+        {
+            anim.SetBool("runBackward", false);
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             anim.SetBool("turnLeft", true);
@@ -139,6 +148,11 @@ public class HumanMovement : MonoBehaviour
         {
             anim.SetBool("Blocking", false);
         }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("Blocking", false);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)

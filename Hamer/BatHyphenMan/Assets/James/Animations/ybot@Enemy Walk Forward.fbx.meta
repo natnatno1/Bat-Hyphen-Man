@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 03b1a0f338dc8e04491c4ea833b03188
+guid: c41a7ffa8520ec044b355587bce7b9e2
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Falling Back Death
+    second: Enemy Walk Forward
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,24 +35,24 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Falling Back Death
+      name: Enemy Walk Forward
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 66
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 0
+      keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
