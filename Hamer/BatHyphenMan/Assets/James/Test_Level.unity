@@ -2091,6 +2091,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1966498606}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &409039176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409039175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cdf9a5caadbfdd46bd752adb30fa908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraMoveSpeed: 120
+  CameraFollowObject: {fileID: 0}
+  ClampAngle: 80
+  InputSensitivity: 150
+  CameraObject: {fileID: 0}
+  PlayerObject: {fileID: 0}
+  CamDistanceXToPlayer: 0
+  CamDistanceYToPlayer: 0
+  CamDistanceZToPlayer: 0
+  MouseX: 0
+  MouseY: 0
+  FinalInputX: 0
+  FinalInputZ: 0
+  SmoothX: 0
+  SmoothY: 0
 --- !u!114 &409039179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7254,12 +7281,27 @@ PrefabInstance:
     - target: {fileID: 4995238406379152301, guid: 99431c2bc3d22374fab3a98348ee9810,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.82
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4995238406379152301, guid: 99431c2bc3d22374fab3a98348ee9810,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -7.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995238406379152301, guid: 99431c2bc3d22374fab3a98348ee9810,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995238406379152301, guid: 99431c2bc3d22374fab3a98348ee9810,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995238406379152301, guid: 99431c2bc3d22374fab3a98348ee9810,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4995238406737090827, guid: 99431c2bc3d22374fab3a98348ee9810,
         type: 3}

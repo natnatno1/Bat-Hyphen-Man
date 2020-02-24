@@ -38,7 +38,9 @@ public class Camera_Collision : MonoBehaviour
             Distance = MaxDistance;
         }
 
-        transform.localPosition = Vector3.Lerp(transform.localPosition, DollyDirection * Distance, Time.deltaTime * Smooth);
+        DollyDirectionAdjusted.Set(DollyDirection.x * Distance, 1.5f, DollyDirection.z * Distance);
+
+        transform.localPosition = Vector3.Lerp(transform.localPosition, DollyDirectionAdjusted, Time.deltaTime * Smooth);
 
     }
 }
