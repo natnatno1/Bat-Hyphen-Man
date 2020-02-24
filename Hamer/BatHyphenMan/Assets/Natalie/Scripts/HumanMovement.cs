@@ -173,7 +173,7 @@ public class HumanMovement : MonoBehaviour
                     {
                         GM.Health -= 1;
                         PlayerCanLoseHealth = false;
-                        Invoke("PlayerDamageReset", 0.5f);
+                        Invoke("PlayerDamageReset", 1f);
                     }
                 }
             }
