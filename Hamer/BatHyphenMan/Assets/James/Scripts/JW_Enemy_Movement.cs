@@ -20,7 +20,7 @@ public class JW_Enemy_Movement : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         Enemy_anim = GetComponent<Animator>();
         Player_anim = GameObject.Find("Vampire").GetComponentInChildren<Animator>();
-        period = Random.Range(2, 4);
+        period = Random.Range(4, 8);
     }
 
     // Update is called once per frame
