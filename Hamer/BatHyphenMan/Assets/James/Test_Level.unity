@@ -2103,21 +2103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdf9a5caadbfdd46bd752adb30fa908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraMoveSpeed: 120
-  CameraFollowObject: {fileID: 0}
-  ClampAngle: 80
-  InputSensitivity: 150
-  CameraObject: {fileID: 0}
-  PlayerObject: {fileID: 0}
-  CamDistanceXToPlayer: 0
-  CamDistanceYToPlayer: 0
-  CamDistanceZToPlayer: 0
-  MouseX: 0
-  MouseY: 0
-  FinalInputX: 0
-  FinalInputZ: 0
-  SmoothX: 0
-  SmoothY: 0
+  RotSpeed: 6
+  ClampAngle: 10
 --- !u!114 &409039179
 MonoBehaviour:
   m_ObjectHideFlags: 0
