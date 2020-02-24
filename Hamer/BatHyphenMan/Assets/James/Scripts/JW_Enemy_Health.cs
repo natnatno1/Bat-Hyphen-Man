@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class JW_Enemy_Health : MonoBehaviour
 {
-    public int Enemy_Health_Points = 3;
+    public int Enemy_Health_Points = 5;
     public Animator Enemy_anim;
     public Animator Player_anim;
     public Game_Manager GM;
     public bool EnemyCanLoseHealth;
     public Transform EnemyHealth;
+    public float HealthBarDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class JW_Enemy_Health : MonoBehaviour
             {
                 if (EnemyCanLoseHealth == true)
                 {
-                    EnemyHealth.transform.localScale -= new Vector3(0f, 5f, 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
+                    EnemyHealth.transform.localScale -= new Vector3(0f, HealthBarDrop, 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
                     Enemy_Health_Points -= 1;
                     EnemyCanLoseHealth = false;
                     Invoke("EnemyDamageReset", 0.8f);

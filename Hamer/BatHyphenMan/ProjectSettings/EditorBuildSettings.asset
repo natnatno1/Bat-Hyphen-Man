@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/James/Test_Level.unity
+    path: Assets/James/Natalie_Test_Level.unity
     guid: d880fbbf4af0187468342b0956ddefff
   - enabled: 1
     path: Assets/Natalie/Scenes/GameOver.unity
