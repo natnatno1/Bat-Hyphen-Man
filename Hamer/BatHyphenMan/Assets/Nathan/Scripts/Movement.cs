@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public float speed = 2.0f;
     public float rotationsPerMinute = 10;
     public Game_Manager GM;
+    private bool CanPlayerLoseHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class Movement : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         rb = GameObject.Find("HumanForm").GetComponent<Rigidbody>();
         anim = GameObject.Find("HumanForm").GetComponent<Animator>();
+        CanPlayerLoseHealth = true;
     }
 
     // Update is called once per frame
@@ -97,13 +99,26 @@ public class Movement : MonoBehaviour
     {
         if (other.gameObject.tag == "EnemyWeapon")
         {
-            GM.Health -= 1;
+            if (GM.EnemyAttacking == true)
+            {
+                if (CanPlayerLoseHealth == true)
+                {
+                    GM.Health -= 1;
+                    CanPlayerLoseHealth = false;
+                    Invoke("PlayerDamageReset", 0.8f);
+                }
+            }
         }
 
         if (other.gameObject.tag == "Item/Health")
         {
             GM.Health += 25;
         }
+    }
+
+    void PlayerDamageReset()
+    {
+        CanPlayerLoseHealth = true;
     }
 
 }
