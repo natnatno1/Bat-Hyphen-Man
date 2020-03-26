@@ -47,6 +47,30 @@ public class JW_Enemy_Movement : MonoBehaviour
 
             }
         }
+
+        RaycastHit hitinfo;
+        if (Physics.Raycast(transform.position, transform.right, out hitinfo, 3f))
+        {
+            if (hitinfo.collider.tag == "Enemy")
+            {
+                transform.position -= transform.right * Time.deltaTime * 2f;
+            }
+            else
+            {
+                transform.position -= transform.right * Time.deltaTime * 0f;
+            }
+        }
+        if (Physics.Raycast(transform.position, -transform.right, out hitinfo, 3f))
+        {
+            if (hitinfo.collider.tag == "Enemy")
+            {
+                transform.position += transform.right * Time.deltaTime * 2f;
+            }
+            else
+            {
+                transform.position += transform.right * Time.deltaTime * 0f;
+            }
+        }
     }
 
     void StopAttack()
