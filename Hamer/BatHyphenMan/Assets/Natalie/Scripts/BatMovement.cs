@@ -13,11 +13,11 @@ public class BatMovement : MonoBehaviour
     float CurrentSpeedX = 0;
     float velocityY = 0;
 
-    public CharacterController controller;
+    public CharacterController PlayerController;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        PlayerController = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -82,7 +82,8 @@ public class BatMovement : MonoBehaviour
         Vector3 velocity = temp * RunSpeed;
         velocity.y = velocityY;
 
-        controller.Move(velocity * Time.deltaTime);
+        PlayerController.Move(velocity * Time.deltaTime);
+        
 
         //NOT REALISTIC ROTATIONS
 
