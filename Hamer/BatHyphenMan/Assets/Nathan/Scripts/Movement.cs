@@ -77,22 +77,6 @@ public class Movement : MonoBehaviour
             anim.SetBool("attacking?", false);
         }
 
-
-        if (anim.GetBool("runForward") == true)
-        {
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(0, 6 * rotationsPerMinute * Time.deltaTime, 0);
-            }
-
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.Rotate(0, -6 * rotationsPerMinute * Time.deltaTime, 0);
-            }
-        }
-
-
-
     }
 
     private void OnTriggerEnter(Collider other)
