@@ -29,14 +29,16 @@ public class Door : MonoBehaviour
             {
                 if (GM.Inventory.Contains("" + KeyNeeded))
                 {
-                    SceneManager.LoadScene(2);
+                   // SceneManager.LoadScene(2);
 
                     if (Unlocked == false)
                     {
                         GM.StatusReportTimer = 5;
                         GM.StatusReport.text = ("You used " + KeyNeeded);
                         Unlocked = true;
+                        Anim.SetBool("Open?", true);
                     }
+
 
                     if (Anim.GetBool("Open?") == false)
                     {
@@ -69,6 +71,22 @@ public class Door : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
+            Interactable = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Interactable = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
             Interactable = false;
         }

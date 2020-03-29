@@ -52,6 +52,8 @@ public class Game_Manager : MonoBehaviour
         Player = GameObject.Find("Vampire");
 
         PlayerRot = Player.transform;
+
+        Inventory.Add("");
     }
 
     // Update is called once per frame
