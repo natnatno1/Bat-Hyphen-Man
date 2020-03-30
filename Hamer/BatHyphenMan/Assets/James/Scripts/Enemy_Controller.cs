@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Enemy_Controller : MonoBehaviour
 {
     public Transform Player;
-    public float EnemyChaseMin = 1.6f;
+    public float EnemyChaseMin = 1.5f;
     public float EnemyChaseMax = 30f;
     public Game_Manager GM;
     public Animator Enemy_anim;
@@ -47,14 +47,14 @@ public class Enemy_Controller : MonoBehaviour
 
         if (EnemyActivated == true)
         {
-            if (Vector3.Distance(transform.position, Player.transform.position) > 1.5f)
+            if (Vector3.Distance(transform.position, Player.transform.position) > EnemyChaseMin)
             {
                 Enemy_anim.SetBool("IsAttacking", false);
                 Enemy_anim.SetBool("IsWalking", true);
                 Nav.enabled = true;
                 Nav.destination = Player.transform.position;
             }
-            if (Vector3.Distance(transform.position, Player.transform.position) < 1.5f)
+            if (Vector3.Distance(transform.position, Player.transform.position) < EnemyChaseMin)
             {
                 Enemy_anim.SetBool("IsWalking", false);
                 Nav.enabled = false;
@@ -83,4 +83,23 @@ public class Enemy_Controller : MonoBehaviour
         Enemy_anim.SetBool("IsAttacking", false);
         InstantAttack = false;
     }
+
+    void FinishAttack()
+    {
+        Enemy_anim.SetBool("IsAttackDone", false);
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //   if (other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "Player")
+    //    {
+    //        if (GM.EnemyAttacking == true && GM.Blocking == false)
+    //        {
+    //            Enemy_anim.SetBool("IsAttacking", false);
+    //            Enemy_anim.SetBool("IsAttackDone", true);
+    //            Invoke("FinishAttack", 2f);
+    //
+    //        }
+    //    }
+    //}
 }

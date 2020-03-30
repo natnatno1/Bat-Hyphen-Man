@@ -77,19 +77,29 @@ public class Movement : MonoBehaviour
             anim.SetBool("attacking?", false);
         }
 
+        if (Input.GetMouseButton(1))
+        {
+            anim.SetBool("Blocking", true);
+        }
+        else
+        {
+            anim.SetBool("Blocking", false);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "EnemyWeapon")
         {
-            if (GM.EnemyAttacking == true)
+            if (GM.EnemyAttacking == true && GM.Blocking == false)
             {
                 if (CanPlayerLoseHealth == true)
                 {
                     GM.Health -= 1;
                     CanPlayerLoseHealth = false;
-                    Invoke("PlayerDamageReset", 0.8f);
+                    anim.SetBool("Hit", true);
+                    Invoke("PlayerDamageReset", 0.5f);
                 }
             }
         }
@@ -103,6 +113,7 @@ public class Movement : MonoBehaviour
     void PlayerDamageReset()
     {
         CanPlayerLoseHealth = true;
+        anim.SetBool("Hit", false);
     }
 
 }
