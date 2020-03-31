@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class JW_Enemy_Health : MonoBehaviour
 {
-    public int Enemy_Health_Points = 5;
+    public float Enemy_Health_Points;
+    public float HealthBarDropSize;
     public Animator Enemy_anim;
     public Animator Player_anim;
     public Game_Manager GM;
+    public Transform EnemyHealthBar;
     public bool EnemyCanLoseHealth;
-    public Transform EnemyHealth;
-    public float HealthBarDrop;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,11 @@ public class JW_Enemy_Health : MonoBehaviour
             Enemy_anim.SetBool("IsDead", true);
             Invoke("DestroyEnemy", 2);
         }
+
+        if (EnemyHealthBar.transform.localScale == new Vector3(transform.localScale.x, 0f, transform.localScale.x))
+        {
+            Destroy(EnemyHealthBar);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,7 +45,8 @@ public class JW_Enemy_Health : MonoBehaviour
             {
                 if (EnemyCanLoseHealth == true)
                 {
-                    EnemyHealth.transform.localScale -= new Vector3(0f, HealthBarDrop, 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
+                    EnemyHealthBar.transform.localScale -= new Vector3(0f, (HealthBarDropSize), 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
+
                     Enemy_Health_Points -= 1;
                     EnemyCanLoseHealth = false;
                     Invoke("EnemyDamageReset", 0.8f);
