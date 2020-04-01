@@ -99,7 +99,7 @@ public class Movement : MonoBehaviour
                     GM.Health -= 1;
                     CanPlayerLoseHealth = false;
                     anim.SetBool("Hit", true);
-                    Invoke("PlayerDamageReset", 0.5f);
+                    Invoke("PlayerDamageReset", 0.7f);
                 }
             }
         }
