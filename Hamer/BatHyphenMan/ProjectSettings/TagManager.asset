@@ -11,6 +11,7 @@ TagManager:
   - PlayerWeapon
   - Interact
   - Enemy
+  - Pushable
   layers:
   - Default
   - TransparentFX

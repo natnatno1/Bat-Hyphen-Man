@@ -21,6 +21,9 @@ public class Lazer_Script : MonoBehaviour
         LR.SetPosition(0, Origin.position);
         RaycastHit Hit;
 
+        LR.startWidth = 0.5f;
+        LR.endWidth = 3f;
+
         if (Physics.Raycast(Origin.position, transform.forward, out Hit))
         {
             if (Hit.collider)

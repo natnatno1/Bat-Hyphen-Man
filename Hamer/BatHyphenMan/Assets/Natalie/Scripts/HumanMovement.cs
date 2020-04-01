@@ -13,6 +13,8 @@ public class HumanMovement : MonoBehaviour
     float CurrentSpeedX = 0;
     float velocityY = 0;
 
+    public bool Pushing;
+
     Rigidbody rb;
     Animator anim;
     public float speed = 2.0f;
@@ -104,6 +106,16 @@ public class HumanMovement : MonoBehaviour
             anim.SetBool("attacking?", false);
         }
 
+        if (Pushing == true)
+        {
+            anim.SetBool("Push", true);
+        }
+
+        else
+        {
+            anim.SetBool("Push", false);
+        }
+
 
 
 
@@ -183,7 +195,51 @@ public class HumanMovement : MonoBehaviour
         {
             GM.Health += 25;
         }
+
+        Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input = input.normalized;
+
+        if (other.gameObject.tag == "Pushable")
+        {
+            if (input.z == 1)
+            {
+                Pushing = true;
+            }
+
+            else if (input.z != 1)
+            {
+                Pushing = false;
+            }
+                
+        }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input = input.normalized;
+
+        if (input.z != 1)
+        {
+            Pushing = false;
+        }
+    }
+
+    // private void OnCollisionEnter(Collision collision)
+    //{
+    //   if (collision.gameObject.tag == "Pushable")
+    ///   {
+    //      Pushing = true;
+    //  }
+    //  }
+
+    // private void OnCollisionExit(Collision collision)
+    // {
+    //     if (collision.gameObject.tag == "Pushable")
+    //    {
+    //       Pushing = false;
+    //    }
+    // }
 
     void PlayerDamageReset()
     {

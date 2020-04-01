@@ -14,6 +14,8 @@ public class Player_Movement : MonoBehaviour
     private bool isSprinting = false;
     private float yRot;
 
+    public bool Pushing;
+
     public float AttackCooldown;
 
     public Animator Anim;
@@ -152,6 +154,21 @@ public class Player_Movement : MonoBehaviour
             GM.Health += 25;
         }
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Pushable")
+        {
+            Pushing = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Pushable")
+        {
+            Pushing = false;
+        }
+    }
 
 }
