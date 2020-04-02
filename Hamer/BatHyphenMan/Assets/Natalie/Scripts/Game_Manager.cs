@@ -23,6 +23,12 @@ public class Game_Manager : MonoBehaviour
 
     public Transform PlayerRot;
 
+    public Transform RespawnPoint;
+    public int RespawnHealth;
+
+    public int Lives;
+
+
     //public static Game_Manager instance;
 
    // private void Awake()
@@ -52,6 +58,8 @@ public class Game_Manager : MonoBehaviour
         Player = GameObject.Find("Vampire");
 
         PlayerRot = Player.transform;
+
+        Lives = 3;
 
         Inventory.Add("");
     }
@@ -98,8 +106,18 @@ public class Game_Manager : MonoBehaviour
 
         if (Health <= 0)
         {
-            SceneManager.LoadScene(1);
-            Health = 10;
+            if (Lives <= 0)
+            {
+                SceneManager.LoadScene(1);
+                Health = 10;
+            }
+
+            else if (Lives > 0)
+            {
+                Lives -= 1;
+                Player.transform.position = RespawnPoint.transform.position;
+                Health = RespawnHealth;
+            }
         }
         
     }
