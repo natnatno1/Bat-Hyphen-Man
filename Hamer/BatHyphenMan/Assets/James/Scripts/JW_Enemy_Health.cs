@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class JW_Enemy_Health : MonoBehaviour
 {
-    public float Enemy_Health_Points;
-    public float HealthBarDropSize;
     public Animator Enemy_anim;
     public Animator Player_anim;
     public Game_Manager GM;
+    public float Enemy_Health_Points;
+    public float HealthBarDropSize;
     public Transform EnemyHealthBar;
     public bool EnemyCanLoseHealth;
 

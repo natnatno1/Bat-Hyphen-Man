@@ -17,6 +17,11 @@ public class Enemy_Controller : MonoBehaviour
     private NavMeshAgent Nav;
     public bool EnemyActivated;
 
+    public float Enemy_Health_Points;
+    public float HealthBarDropSize;
+    public Transform EnemyHealthBar;
+    public bool EnemyCanLoseHealth;
+
     void Start()
     {
         Player = GameObject.Find("HumanForm").GetComponent<Transform>();
@@ -27,6 +32,7 @@ public class Enemy_Controller : MonoBehaviour
         InstantAttack = true;
         Nav = GetComponent<NavMeshAgent>();
         EnemyActivated = false;
+        EnemyCanLoseHealth = true;
     }
 
     void Update()
@@ -76,6 +82,52 @@ public class Enemy_Controller : MonoBehaviour
                 }
             }
         }
+
+        if (Enemy_Health_Points < 1)
+        {
+            Enemy_anim.SetBool("IsDead", true);
+            Invoke("DestroyEnemy", 2);
+        }
+
+        if (EnemyHealthBar.transform.localScale == new Vector3(transform.localScale.x, 0f, transform.localScale.x))
+        {
+            Destroy(EnemyHealthBar);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "PlayerWeapon")
+        {
+            if (GM.Attacking == true)
+            {
+                if (EnemyCanLoseHealth == true)
+                {
+                    EnemyHealthBar.transform.localScale -= new Vector3(0f, (HealthBarDropSize), 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
+
+                    Enemy_Health_Points -= 1;
+                    EnemyCanLoseHealth = false;
+                    Invoke("EnemyDamageReset", 0.8f);
+
+                    if (Enemy_Health_Points >= 1)
+                    {
+                        Enemy_anim.SetBool("IsHit", true);
+                        Invoke("StopStaggering", 0.3f);
+                    }
+                }
+            }
+        }
+
+        if (other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "Player")
+        {
+            if (GM.Blocking == true && GM.EnemyAttacking == true)
+            {
+                Enemy_anim.SetBool("ClashedSword", true);
+                Nav.enabled = false;
+                Invoke("StopStaggering", 0.5f);
+            }
+        }
+
     }
 
     void StopAttack()
@@ -89,17 +141,21 @@ public class Enemy_Controller : MonoBehaviour
         Enemy_anim.SetBool("IsAttackDone", false);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //   if (other.gameObject.tag == "PlayerWeapon" || other.gameObject.tag == "Player")
-    //    {
-    //        if (GM.EnemyAttacking == true && GM.Blocking == false)
-    //        {
-    //            Enemy_anim.SetBool("IsAttacking", false);
-    //            Enemy_anim.SetBool("IsAttackDone", true);
-    //            Invoke("FinishAttack", 2f);
-    //
-    //        }
-    //    }
-    //}
+    void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    void StopStaggering()
+    {
+        Enemy_anim.SetBool("IsHit", false);
+
+        Enemy_anim.SetBool("ClashedSword", false);
+    }
+
+    void EnemyDamageReset()
+    {
+        EnemyCanLoseHealth = true;
+    }
+
 }
