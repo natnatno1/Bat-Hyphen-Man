@@ -1355,12 +1355,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced515bd9e53b5b468dc602db5d25890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   EnemyChaseMin: 1.5
   EnemyChaseMax: 30
-  GM: {fileID: 0}
   Enemy_anim: {fileID: 0}
-  Player_anim: {fileID: 0}
   period: 3
   InstantAttack: 0
   EnemyActivated: 0
@@ -4232,31 +4229,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.151
+      value: 0.137
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.144
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.028
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.11141732
+      value: -0.23372997
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6435075
+      value: -0.561667
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.42505518
+      value: -0.58812845
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.62674755
+      value: 0.5329216
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_RootOrder
@@ -4264,19 +4261,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -43.371002
+      value: -65.476006
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -78.336006
+      value: -51.251003
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -32.391003
+      value: -61.360004
       objectReference: {fileID: 0}
     - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.54874647
+      value: 0.5487468
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2834
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687202991220354, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7362
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4d0f82eedb95f543ab0961de54f43fd, type: 3}
@@ -7202,12 +7207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced515bd9e53b5b468dc602db5d25890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   EnemyChaseMin: 1.4
   EnemyChaseMax: 30
-  GM: {fileID: 0}
   Enemy_anim: {fileID: 0}
-  Player_anim: {fileID: 0}
   period: 3
   InstantAttack: 0
   EnemyActivated: 0
@@ -7352,7 +7354,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
@@ -10998,7 +11000,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
@@ -12263,12 +12265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced515bd9e53b5b468dc602db5d25890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemyChaseMin: 1.5
+  EnemyChaseMin: 1.3
   EnemyChaseMax: 30
-  GM: {fileID: 0}
   Enemy_anim: {fileID: 0}
-  Player_anim: {fileID: 0}
   period: 3
   InstantAttack: 0
   EnemyActivated: 0
@@ -12371,8 +12370,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.27357072, y: 1.9908562, z: 0.11194962}
-  m_Center: {x: -0.007842358, y: 0.7449136, z: -0.03462718}
+  m_Size: {x: 0.27357072, y: 1.8756, z: 0.11194964}
+  m_Center: {x: -0.007842323, y: 0.68728435, z: -0.03462751}
 --- !u!65 &1641892949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12384,8 +12383,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27357072, y: 1.9908562, z: 0.11194962}
-  m_Center: {x: -0.007842358, y: 0.7449136, z: -0.03462718}
+  m_Size: {x: 0.12931375, y: 0.65603405, z: 0.120000005}
+  m_Center: {x: -0.0013511204, y: 1.077875, z: -0.034630362}
 --- !u!1 &1643720554
 GameObject:
   m_ObjectHideFlags: 0
@@ -12594,12 +12593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced515bd9e53b5b468dc602db5d25890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemyChaseMin: 1.7
+  EnemyChaseMin: 1.9
   EnemyChaseMax: 30
-  GM: {fileID: 0}
   Enemy_anim: {fileID: 0}
-  Player_anim: {fileID: 0}
   period: 3
   InstantAttack: 0
   EnemyActivated: 0
@@ -12690,7 +12686,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: b588340000575004cb052e91f5e36c1c,
         type: 3}
@@ -17222,6 +17218,7 @@ MonoBehaviour:
   speed: 2
   rotationsPerMinute: 10
   GM: {fileID: 222209667}
+  CanPlayerLoseHealth: 0
 --- !u!4 &5280861175365512262
 Transform:
   m_ObjectHideFlags: 0

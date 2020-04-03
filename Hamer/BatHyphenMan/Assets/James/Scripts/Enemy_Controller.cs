@@ -5,12 +5,12 @@ using UnityEngine.AI;
 
 public class Enemy_Controller : MonoBehaviour
 {
-    public Transform Player;
+    private Transform Player;
     public float EnemyChaseMin = 1.5f;
     public float EnemyChaseMax = 30f;
-    public Game_Manager GM;
+    private Game_Manager GM;
     public Animator Enemy_anim;
-    public Animator Player_anim;
+    private Animator Player_anim;
     private float nextActionTime = 0.0f;
     public float period;
     public bool InstantAttack;

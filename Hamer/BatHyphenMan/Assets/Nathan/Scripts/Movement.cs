@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     public float speed = 2.0f;
     public float rotationsPerMinute = 10;
     public Game_Manager GM;
-    private bool CanPlayerLoseHealth;
+    public bool CanPlayerLoseHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -99,7 +99,7 @@ public class Movement : MonoBehaviour
                     GM.Health -= 1;
                     CanPlayerLoseHealth = false;
                     anim.SetBool("Hit", true);
-                    Invoke("PlayerDamageReset", 0.7f);
+                    Invoke("PlayerDamageReset", 2f);
                 }
             }
         }
