@@ -9,9 +9,9 @@ public class EnemyIsAttacking : StateMachineBehaviour
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+
         GM.EnemyAttacking = true;
     }
-
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
