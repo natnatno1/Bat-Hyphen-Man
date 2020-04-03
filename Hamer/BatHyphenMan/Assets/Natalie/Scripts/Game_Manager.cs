@@ -23,8 +23,11 @@ public class Game_Manager : MonoBehaviour
 
     public Transform PlayerRot;
 
-    public Transform RespawnPoint;
+    public GameObject RespawnPoint;
     public int RespawnHealth;
+    public GameObject CurrentForm;
+
+    public bool GameOver;
 
     public int Lives;
 
@@ -59,7 +62,7 @@ public class Game_Manager : MonoBehaviour
 
         PlayerRot = Player.transform;
 
-        Lives = 3;
+        Lives = 5;
 
         Inventory.Add("");
     }
@@ -67,6 +70,10 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        CurrentForm = Camera.main.transform.parent.gameObject;
+
+
         if (SceneManager.GetSceneByBuildIndex(1) == SceneManager.GetActiveScene())
         {
             if (Input.GetMouseButtonDown(0))
@@ -108,16 +115,21 @@ public class Game_Manager : MonoBehaviour
         {
             if (Lives <= 0)
             {
-                SceneManager.LoadScene(1);
-                Health = 10;
+                GameOver = true;
             }
 
             else if (Lives > 0)
             {
-                Lives -= 1;
-                Player.transform.position = RespawnPoint.transform.position;
-                Health = RespawnHealth;
+                Health = 10;
+                Lives = Lives - 1;
+                CurrentForm.transform.position = RespawnPoint.transform.position;
             }
+        }
+
+        if (GameOver == true)
+        {
+            SceneManager.LoadScene(1);
+            Health = 10;
         }
         
     }

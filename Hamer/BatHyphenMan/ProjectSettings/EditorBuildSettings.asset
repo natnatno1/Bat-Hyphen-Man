@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/James/Scenes/The_Alpha_Build.unity
-    guid: d880fbbf4af0187468342b0956ddefff
+    path: Assets/Natalie/Scenes/BetaBuild.unity
+    guid: ceb82fcdf5dcb424d872338054d48ae7
   - enabled: 1
     path: Assets/Natalie/Scenes/GameOver.unity
     guid: 69e74ee6b07e42b4aafedbbcc9cdb142
