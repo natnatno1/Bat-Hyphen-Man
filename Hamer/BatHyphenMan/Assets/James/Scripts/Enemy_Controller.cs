@@ -12,15 +12,18 @@ public class Enemy_Controller : MonoBehaviour
     public Animator Enemy_anim;
     private Animator Player_anim;
     private float nextActionTime = 0.0f;
-    public float period;
-    public bool InstantAttack;
+    private float period;
+    private bool InstantAttack;
     private NavMeshAgent Nav;
-    public bool EnemyActivated;
+    private bool EnemyActivated;
 
     public float Enemy_Health_Points;
     public float HealthBarDropSize;
     public Transform EnemyHealthBar;
     public bool EnemyCanLoseHealth;
+
+    public float Min_Hit_Speed;
+    public float Max_Hit_Speed;
 
     void Start()
     {
@@ -28,7 +31,7 @@ public class Enemy_Controller : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         Enemy_anim = GetComponent<Animator>();
         Player_anim = GameObject.Find("Vampire").GetComponentInChildren<Animator>();
-        period = Random.Range(3f, 5f);
+        period = Random.Range(Min_Hit_Speed, Max_Hit_Speed);
         InstantAttack = true;
         Nav = GetComponent<NavMeshAgent>();
         EnemyActivated = false;
