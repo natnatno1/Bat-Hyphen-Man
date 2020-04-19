@@ -191,21 +191,21 @@ public class HumanMovement : MonoBehaviour
     {
     }
 
-    // private void OnCollisionEnter(Collision collision)
-    //{
-    //   if (collision.gameObject.tag == "Pushable")
-    ///   {
-    //      Pushing = true;
-    //  }
-    //  }
+     private void OnCollisionEnter(Collision collision)
+    {
+       if (collision.gameObject.tag == "Pushable")
+       {
+          Pushing = true;
+      }
+      }
 
-    // private void OnCollisionExit(Collision collision)
-    // {
-    //     if (collision.gameObject.tag == "Pushable")
-    //    {
-    //       Pushing = false;
-    //    }
-    // }
+     private void OnCollisionExit(Collision collision)
+     {
+         if (collision.gameObject.tag == "Pushable")
+        {
+           Pushing = false;
+        }
+     }
 
     void PlayerDamageReset()
     {
