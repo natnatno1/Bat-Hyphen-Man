@@ -9,7 +9,7 @@ public class JW_Enemy_Health : MonoBehaviour
     public Game_Manager GM;
     public float Enemy_Health_Points;
     public float HealthBarDropSize;
-    //public Transform EnemyHealthBar;
+    public Transform EnemyHealthBar;
     public bool EnemyCanLoseHealth;
 
 
@@ -31,10 +31,10 @@ public class JW_Enemy_Health : MonoBehaviour
             Invoke("DestroyEnemy", 2);
         }
 
-        //if (EnemyHealthBar.transform.localScale == new Vector3(transform.localScale.x, 0f, transform.localScale.x))
-        //{
-        //    Destroy(EnemyHealthBar);
-        //}
+        if (EnemyHealthBar.transform.localScale == new Vector3(transform.localScale.x, 0f, transform.localScale.x))
+        {
+            Destroy(EnemyHealthBar);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -45,7 +45,7 @@ public class JW_Enemy_Health : MonoBehaviour
             {
                 if (EnemyCanLoseHealth == true)
                 {
-                    //EnemyHealthBar.transform.localScale -= new Vector3(0f, (HealthBarDropSize), 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
+                    EnemyHealthBar.transform.localScale -= new Vector3(0f, (HealthBarDropSize), 0f); //Reduce health bar size. Note the bar is not actually linked to the health but just changes at the same time.
 
                     Enemy_Health_Points -= 1;
                     EnemyCanLoseHealth = false;
