@@ -181,7 +181,15 @@ public class HumanMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Item/Health")
         {
-            GM.Health += 25;
+            if (GM.Health >= 5)
+            {
+                GM.Health = 10;
+            }
+
+            else if (GM.Health < 5)
+            {
+                GM.Health += 5;
+            }
         }
         
         

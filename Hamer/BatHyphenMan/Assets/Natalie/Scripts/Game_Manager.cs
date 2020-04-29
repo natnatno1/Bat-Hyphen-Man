@@ -31,6 +31,8 @@ public class Game_Manager : MonoBehaviour
 
     public int Lives;
 
+    public Image HealthBar;
+
 
     //public static Game_Manager instance;
 
@@ -52,9 +54,9 @@ public class Game_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HealthBar = GameObject.Find("HealthBarFull").GetComponent<Image>();
         StatusReport = GameObject.Find("Status_Report").GetComponent<Text>();
         StatusReport.text = "";
-        HealthStatus = GameObject.Find("Health").GetComponent<Text>();
         Daytime = false;
         IsBat = false;
 
@@ -70,6 +72,7 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HealthBar.rectTransform.sizeDelta = new Vector2((15 * Health), 15);
 
         CurrentForm = Camera.main.transform.parent.gameObject;
 
@@ -108,8 +111,6 @@ public class Game_Manager : MonoBehaviour
         {
             StatusReport.text = "";
         }
-
-        HealthStatus.text = ("Health: " + Health);
 
         if (Health <= 0)
         {
