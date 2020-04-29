@@ -27,7 +27,7 @@ public class Item_Pickup : MonoBehaviour
             //GM.Inventory[GM.Inventory.Length + 1] = ItemName;
             GM.Inventory.Add("" + ItemName);
             GM.StatusReportTimer = 5;
-            GM.StatusReport.text = ("Picked up " + ItemName);
+            GM.StatusReport.text = ("You picked up " + ItemName + "...");
         }
     }
 }
