@@ -12,6 +12,7 @@ TagManager:
   - Interact
   - Enemy
   - Pushable
+  - EnemyVision
   layers:
   - Default
   - TransparentFX

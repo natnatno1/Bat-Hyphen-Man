@@ -25,6 +25,8 @@ public class Enemy_Controller : MonoBehaviour
     public float Min_Hit_Speed;
     public float Max_Hit_Speed;
 
+    private GameObject EnemyVision;
+
     void Start()
     {
         Player = GameObject.Find("HumanForm").GetComponent<Transform>();
@@ -36,6 +38,8 @@ public class Enemy_Controller : MonoBehaviour
         Nav = GetComponent<NavMeshAgent>();
         EnemyActivated = false;
         EnemyCanLoseHealth = true;
+
+        EnemyVision = GameObject.FindGameObjectWithTag("EnemyVision");
     }
 
     void Update()
@@ -45,7 +49,7 @@ public class Enemy_Controller : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.transform.position) <= EnemyChaseMax)
         {
             RaycastHit hitinfo;
-            if (Physics.Raycast(transform.position, transform.forward, out hitinfo))
+            if (Physics.Raycast(EnemyVision.transform.position, EnemyVision.transform.forward, out hitinfo))
             {
                 if (hitinfo.collider.gameObject.tag == "Player")
                 {
