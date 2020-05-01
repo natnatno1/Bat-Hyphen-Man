@@ -25,7 +25,7 @@ public class Enemy_Controller : MonoBehaviour
     public float Min_Hit_Speed;
     public float Max_Hit_Speed;
 
-    private GameObject EnemyVision;
+    public GameObject EnemyVision;
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class Enemy_Controller : MonoBehaviour
         EnemyActivated = false;
         EnemyCanLoseHealth = true;
 
-        EnemyVision = GameObject.FindGameObjectWithTag("EnemyVision");
+        //EnemyVision = GameObject.Find("EnemySight");
     }
 
     void Update()

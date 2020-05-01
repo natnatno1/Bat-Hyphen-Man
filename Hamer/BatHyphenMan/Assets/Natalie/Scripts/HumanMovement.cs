@@ -173,6 +173,8 @@ public class HumanMovement : MonoBehaviour
                     {
                         GM.Health -= 1;
                         PlayerCanLoseHealth = false;
+                        anim.SetBool("Hit", true);
+
                         Invoke("PlayerDamageReset", 1.5f);
                     }
                 }
@@ -218,6 +220,7 @@ public class HumanMovement : MonoBehaviour
     void PlayerDamageReset()
     {
         PlayerCanLoseHealth = true;
+        anim.SetBool("Hit", false);
     }
 
 }
