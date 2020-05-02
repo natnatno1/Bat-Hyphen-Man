@@ -31,6 +31,8 @@ public class Game_Manager : MonoBehaviour
 
     public int Lives;
 
+    public bool TooLow;
+
     public Image HealthBar;
 
 
