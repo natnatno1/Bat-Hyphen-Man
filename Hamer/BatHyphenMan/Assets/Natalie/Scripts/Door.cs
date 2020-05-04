@@ -49,6 +49,11 @@ public class Door : MonoBehaviour
                     {
                         Anim.SetBool("Open?", false);
                     }
+
+                    if (DoorDetails == "FinalDoor")
+                    {
+                        SceneManager.LoadScene(2);
+                    }
                 }
 
                 else

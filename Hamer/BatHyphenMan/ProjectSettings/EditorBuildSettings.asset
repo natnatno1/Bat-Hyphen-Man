@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Natalie/Scenes/GameOver.unity
     guid: 69e74ee6b07e42b4aafedbbcc9cdb142
   - enabled: 1
-    path: Assets/VL/Win.unity
-    guid: ed8ab3116d68cf74ab1555f6f9e27b10
+    path: Assets/Natalie/Scenes/Win.unity
+    guid: dc5912b77fa7aa74ab357265e0cda644
   m_configObjects: {}
