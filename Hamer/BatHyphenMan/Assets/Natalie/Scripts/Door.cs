@@ -36,7 +36,6 @@ public class Door : MonoBehaviour
                         GM.StatusReportTimer = 5;
                         GM.StatusReport.text = ("You used " + KeyNeeded);
                         Unlocked = true;
-                        Anim.SetBool("Open?", true);
                     }
 
 

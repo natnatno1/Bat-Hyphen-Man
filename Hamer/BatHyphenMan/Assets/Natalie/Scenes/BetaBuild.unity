@@ -61167,7 +61167,7 @@ MonoBehaviour:
   Anim: {fileID: 0}
   GM: {fileID: 0}
   Interactable: 0
-  Unlocked: 1
+  Unlocked: 0
   DoorDetails: This Door is Locked- You need the "Silver Key"
   KeyNeeded: Silver Key
 --- !u!65 &1250039894
@@ -71135,7 +71135,7 @@ MonoBehaviour:
   Anim: {fileID: 0}
   GM: {fileID: 0}
   Interactable: 0
-  Unlocked: 1
+  Unlocked: 0
   DoorDetails: This Door is Locked- You need the "Rusty Key"
   KeyNeeded: Rusty Key
 --- !u!65 &1519360379
