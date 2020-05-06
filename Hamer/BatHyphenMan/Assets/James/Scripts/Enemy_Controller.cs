@@ -75,7 +75,9 @@ public class Enemy_Controller : MonoBehaviour
                 if (InstantAttack == true)
                 {
                     Enemy_anim.SetBool("IsAttacking", true);
-                    Invoke("StopAttack", 0.5f);
+                    Enemy_anim.SetBool("IsAttackingpt2", true);
+
+                    Invoke("StopAttack", 2f);
                 }
                 if (InstantAttack == false)
                 {
@@ -83,7 +85,8 @@ public class Enemy_Controller : MonoBehaviour
                     {
                         nextActionTime += period;
                         Enemy_anim.SetBool("IsAttacking", true);
-                        Invoke("StopAttack", 0.5f);
+                        Enemy_anim.SetBool("IsAttackingpt2", true);
+                        Invoke("StopAttack", 2f);
 
                     }
                 }
@@ -140,6 +143,8 @@ public class Enemy_Controller : MonoBehaviour
     void StopAttack()
     {
         Enemy_anim.SetBool("IsAttacking", false);
+        Enemy_anim.SetBool("IsAttackingpt2", false);
+
         InstantAttack = false;
     }
 
