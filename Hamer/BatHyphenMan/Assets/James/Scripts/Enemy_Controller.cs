@@ -26,6 +26,7 @@ public class Enemy_Controller : MonoBehaviour
     public float Max_Hit_Speed;
 
     public GameObject EnemyVision;
+    HumanMovement HumanMovement;
 
     void Start()
     {
@@ -132,9 +133,18 @@ public class Enemy_Controller : MonoBehaviour
         {
             if (GM.Blocking == true && GM.EnemyAttacking == true)
             {
-                Enemy_anim.SetBool("ClashedSword", true);
-                Nav.enabled = false;
-                Invoke("StopStaggering", 0.5f);
+                if (GameObject.Find("HumanForm").GetComponent<HumanMovement>().CanParry == true)
+                {
+                    Enemy_anim.SetBool("ClashedSword", true);
+                    Invoke("StopStaggering", 0.5f);
+                    Nav.enabled = false;
+                }
+                if (GameObject.Find("HumanForm").GetComponent<HumanMovement>().CanParry == false)
+                {
+                    Enemy_anim.SetBool("IsAttacking", false);
+                    Enemy_anim.SetBool("IsAttackingpt2", false);
+                }
+
             }
         }
 
@@ -169,5 +179,4 @@ public class Enemy_Controller : MonoBehaviour
     {
         EnemyCanLoseHealth = true;
     }
-
 }

@@ -25,6 +25,8 @@ public class HumanMovement : MonoBehaviour
     public CharacterController controller;
     public bool PlayerCanLoseHealth;
 
+    public bool CanParry = false;
+
     void Start()
     {
         PlayerCanLoseHealth = true;
@@ -153,6 +155,16 @@ public class HumanMovement : MonoBehaviour
             anim.SetBool("Blocking", false);
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            CanParry = true;
+            Invoke("Parrytimer", 2f);
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            CanParry = false;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -223,4 +235,8 @@ public class HumanMovement : MonoBehaviour
         anim.SetBool("Hit", false);
     }
 
+    void Parrytimer()
+    {
+        CanParry = false;
+    }
 }
