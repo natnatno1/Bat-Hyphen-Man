@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStopsBlocking : StateMachineBehaviour
+public class PlayerAttack2Stops : StateMachineBehaviour
 {
     public Game_Manager GM;
 
@@ -21,11 +21,10 @@ public class PlayerStopsBlocking : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (animator.GetBool("Blocking") == false)
+        if (animator.GetBool("attacking?") == false)
         {
-            GM.Blocking = false;
+            GM.Attack2 = false;
         }
-
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

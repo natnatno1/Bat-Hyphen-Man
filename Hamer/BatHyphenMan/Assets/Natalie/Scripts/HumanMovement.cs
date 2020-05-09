@@ -109,11 +109,19 @@ public class HumanMovement : MonoBehaviour
             anim.SetBool("attacking?", false);
         }
         
-        
-       // Vector3 velocity = temp * RunSpeed;
-       // velocity.y = velocityY;
+        if (GM.Attack1 == true)
+        {
+            Invoke("SecondAttackSetUp", 0.5f);
+        }
+        if (GM.Attack1 == false)
+        {
+            anim.SetBool("Secondattack", false);
+        }
 
-      //  controller.Move(velocity * Time.deltaTime);
+        // Vector3 velocity = temp * RunSpeed;
+        // velocity.y = velocityY;
+
+        //  controller.Move(velocity * Time.deltaTime);
 
         //NOT REALISTIC ROTATIONS
 
@@ -238,5 +246,13 @@ public class HumanMovement : MonoBehaviour
     void Parrytimer()
     {
         CanParry = false;
+    }
+
+    void SecondAttackSetUp()
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("Secondattack", true);
+        }
     }
 }

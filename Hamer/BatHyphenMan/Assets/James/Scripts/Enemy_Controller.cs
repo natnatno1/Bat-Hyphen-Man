@@ -110,7 +110,7 @@ public class Enemy_Controller : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerWeapon")
         {
-            if (GM.Attacking == true)
+            if (GM.Attacking == true || GM.Attack1 == true || GM.Attack2 == true)
             {
                 if (EnemyCanLoseHealth == true)
                 {
