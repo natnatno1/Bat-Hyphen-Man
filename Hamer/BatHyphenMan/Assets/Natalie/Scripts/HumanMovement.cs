@@ -118,6 +118,15 @@ public class HumanMovement : MonoBehaviour
             anim.SetBool("Secondattack", false);
         }
 
+        if (GM.Attack2 == true)
+        {
+            Invoke("ThirdAttackSetUp", 0.5f);
+        }
+        if (GM.Attack2 == false)
+        {
+            anim.SetBool("Thirdattack", false);
+        }
+
         // Vector3 velocity = temp * RunSpeed;
         // velocity.y = velocityY;
 
@@ -253,6 +262,14 @@ public class HumanMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             anim.SetBool("Secondattack", true);
+        }
+    }
+
+    void ThirdAttackSetUp()
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("Thirdattack", true);
         }
     }
 }
