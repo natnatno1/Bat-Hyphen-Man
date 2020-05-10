@@ -121,6 +121,7 @@ public class HumanMovement : MonoBehaviour
         if (GM.Attack2 == true)
         {
             Invoke("ThirdAttackSetUp", 0.5f);
+            anim.SetBool("attacking?", false);
         }
         if (GM.Attack2 == false)
         {

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 0f551f2126154d342b0c4bd96e9f6e37
+guid: 5807c1c8e51d7244aaebe5ec247e6a74
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Standing Melee Attack 360 High
+    second: Standing 1H Magic Attack 03
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,17 +35,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Standing Melee Attack 360 High
+      name: Standing 1H Magic Attack 03
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 95
+      lastFrame: 43
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 1
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 1

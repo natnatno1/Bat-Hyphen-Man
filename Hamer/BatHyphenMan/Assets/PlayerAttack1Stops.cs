@@ -25,7 +25,6 @@ public class PlayerAttack1Stops : StateMachineBehaviour
         {
             GM.Attack1 = false;
         }
-
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

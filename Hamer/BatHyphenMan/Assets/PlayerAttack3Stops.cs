@@ -21,7 +21,7 @@ public class PlayerAttack3Stops : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (animator.GetBool("attacking?") == false)
+        if (animator.GetBool("Thirdattack") == false)
         {
             GM.Attack3 = false;
         }

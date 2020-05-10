@@ -72,7 +72,7 @@ AnimatorStateMachine:
     m_Position: {x: -60, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7667084492080488622}
-    m_Position: {x: 570, y: 230, z: 0}
+    m_Position: {x: 600, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 60790346771072069}
     m_Position: {x: 600, y: 150, z: 0}
@@ -93,7 +93,7 @@ AnimatorStateMachine:
     m_Position: {x: 420, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2498520517872693088}
-    m_Position: {x: 620, y: 60, z: 0}
+    m_Position: {x: 600, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3346978286001584732}
     m_Position: {x: -40, y: 390, z: 0}
@@ -471,7 +471,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Standing Melee Attack 360 High
-  m_Speed: 1
+  m_Speed: 1.3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 9212462262281627709}
@@ -486,7 +486,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 0f551f2126154d342b0c4bd96e9f6e37,
+  m_Motion: {fileID: -203655887218126122, guid: 5807c1c8e51d7244aaebe5ec247e6a74,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
