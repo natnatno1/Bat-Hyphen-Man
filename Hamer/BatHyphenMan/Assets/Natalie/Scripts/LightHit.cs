@@ -50,10 +50,10 @@ public class LightHit : MonoBehaviour
                     GM.Health -= 100;
                 }
 
-                if (rayHit.collider.tag != "Player")
-                {
-                    Debug.LogFormat("Not");
-                }
+               // if (rayHit.collider.tag != "Player")
+               // {
+                   // Debug.LogFormat("Not");
+               // }
             }
         }
         

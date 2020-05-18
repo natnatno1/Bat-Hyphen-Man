@@ -11,7 +11,7 @@ public class Player_Movement : MonoBehaviour
     public float mouseSensitivity = 2f;
     public float jumpHeight = 3f;
     private bool isMoving = false;
-    private bool isSprinting = false;
+  //  private bool isSprinting = false;
     private float yRot;
 
     public bool Pushing;

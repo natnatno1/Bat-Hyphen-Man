@@ -8,10 +8,10 @@ public class HumanMovement : MonoBehaviour
     public float verticalSpeed = 2.0F;
     public float RunSpeed = 1;
     public float gravity = -5;
-    float CurrentSpeedUp = 0;
-    float CurrentSpeedDown = 0;
-    float CurrentSpeedX = 0;
-    float velocityY = 0;
+   // float CurrentSpeedUp = 0;
+   // float CurrentSpeedDown = 0;
+    //float CurrentSpeedX = 0;
+   // float velocityY = 0;
 
     public bool Pushing;
     public bool CanPush;
