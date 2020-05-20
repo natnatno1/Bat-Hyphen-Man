@@ -77,6 +77,8 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         HealthBar.rectTransform.sizeDelta = new Vector2((15 * Health), 15);
 
         CurrentForm = Camera.main.transform.parent.gameObject;
