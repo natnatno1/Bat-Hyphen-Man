@@ -14,6 +14,7 @@ TagManager:
   - Pushable
   - EnemyVision
   - Floor
+  - Interactable
   layers:
   - Default
   - TransparentFX

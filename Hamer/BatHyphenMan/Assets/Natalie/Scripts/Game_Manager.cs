@@ -39,6 +39,7 @@ public class Game_Manager : MonoBehaviour
     public Image HealthBar;
 
 
+
     //public static Game_Manager instance;
 
    // private void Awake()

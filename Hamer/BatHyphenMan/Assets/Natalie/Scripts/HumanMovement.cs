@@ -25,6 +25,8 @@ public class HumanMovement : MonoBehaviour
     public CharacterController controller;
     public bool PlayerCanLoseHealth;
 
+    public AudioAndSoundEffects ASEScript;
+
     public bool CanParry = false;
 
     void Start()
@@ -34,6 +36,7 @@ public class HumanMovement : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         rb = GameObject.Find("HumanForm").GetComponent<Rigidbody>();
         anim = GameObject.Find("HumanForm").GetComponent<Animator>();
+        ASEScript = Camera.main.gameObject.transform.Find("SoundEffectsController").GetComponent<AudioAndSoundEffects>();
     }
 
     void Update()
@@ -204,7 +207,7 @@ public class HumanMovement : MonoBehaviour
                         GM.Health -= 1;
                         PlayerCanLoseHealth = false;
                         anim.SetBool("Hit", true);
-
+                        ASEScript.CurrentSound = 2;
                         Invoke("PlayerDamageReset", 1.5f);
                     }
                 }
@@ -216,11 +219,13 @@ public class HumanMovement : MonoBehaviour
             if (GM.Health >= 5)
             {
                 GM.Health = 10;
+                ASEScript.CurrentSound = 1;
             }
 
             else if (GM.Health < 5)
             {
                 GM.Health += 5;
+                ASEScript.CurrentSound = 1;
             }
         }
         

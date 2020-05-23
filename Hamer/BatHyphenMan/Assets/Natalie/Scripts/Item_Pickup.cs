@@ -29,6 +29,11 @@ public class Item_Pickup : MonoBehaviour
             GM.Inventory.Add("" + ItemName);
             GM.StatusReportTimer = 5;
             GM.StatusReport.text = ("You picked up " + ItemName + "...");
+
+            if (ItemName == "Rusty Key" || ItemName == "Silver Key")
+            {
+                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 11;
+            }
         }
     }
 }

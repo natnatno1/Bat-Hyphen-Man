@@ -23,6 +23,11 @@ public class ChangeIntoBat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 13;
+        }
+
         if (GM.IsBat == false)
         {
             MainCamera.transform.parent = VampireHuman.transform;

@@ -36,17 +36,49 @@ public class Door : MonoBehaviour
                         GM.StatusReportTimer = 5;
                         GM.StatusReport.text = ("You used " + KeyNeeded);
                         Unlocked = true;
+
+                        if (KeyNeeded == "Rusty Key")
+                        {
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 4;
+                        }
+
+                        else if (KeyNeeded == "Silver Key")
+                        {
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 8;
+                        }
                     }
 
 
                     if (Anim.GetBool("Open?") == false)
                     {
                         Anim.SetBool("Open?", true);
+
+                        if (KeyNeeded == "Rusty Key")
+                        {
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 5;
+
+                        }
+
+                        else if (KeyNeeded == "Silver Key")
+                        {
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 9;
+                        }
                     }
                     
                     else if (Anim.GetBool("Open?") == true)
                     {
                         Anim.SetBool("Open?", false);
+
+                        if (KeyNeeded == "Rusty Key")
+                        {
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 6;
+                        }
+
+                        else if (KeyNeeded == "Silver Key")
+                        {
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 10;
+                        }
+
                     }
 
                     if (DoorDetails == "FinalDoor")
@@ -59,6 +91,16 @@ public class Door : MonoBehaviour
                 {
                     GM.StatusReportTimer = 5;
                     GM.StatusReport.text = ("" + DoorDetails);
+
+                    if (KeyNeeded == "Rusty Key")
+                    {
+                        Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 3;
+                    }
+
+                    else if (KeyNeeded == "Silver Key")
+                    {
+                        Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 7;
+                    }
                 }
             }
         }
