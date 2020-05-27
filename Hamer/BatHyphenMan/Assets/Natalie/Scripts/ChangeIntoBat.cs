@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class ChangeIntoBat : MonoBehaviour
@@ -9,6 +10,9 @@ public class ChangeIntoBat : MonoBehaviour
     public GameObject VampireHuman;
     public Camera MainCamera;
     public GameObject YDist;
+    public ParticleSystem BatPoof;
+    public ParticleSystem HumanPoof;
+    public bool PoofPlay;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +22,8 @@ public class ChangeIntoBat : MonoBehaviour
         VampireHuman = GameObject.Find("Vampire/HumanForm");
         MainCamera = Camera.main;
         YDist = GameObject.Find("Vampire/BatForm/Y-Collider").GetComponent<GameObject>();
+        BatPoof = transform.Find("BatForm").GetComponent<ParticleSystem>();
+        HumanPoof = transform.Find("HumanForm").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -26,6 +32,7 @@ public class ChangeIntoBat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 13;
+            PoofPlay = true;
         }
 
         if (GM.IsBat == false)
@@ -56,6 +63,21 @@ public class ChangeIntoBat : MonoBehaviour
             {
                 VampireHuman.transform.position = new Vector3(VampireBat.transform.position.x, (VampireBat.transform.position.y + 1.25f), VampireBat.transform.position.z);
                 VampireHuman.transform.rotation = VampireBat.transform.rotation;
+            }
+        }
+
+        if (PoofPlay == true)
+        {
+            if (GM.IsBat == false)
+            {
+                HumanPoof.Play();
+                PoofPlay = false;
+            }
+
+            else if (GM.IsBat == true)
+            {
+                BatPoof.Play();
+                PoofPlay = false;
             }
         }
 
