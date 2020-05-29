@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class HumanMovement : MonoBehaviour
@@ -28,6 +29,8 @@ public class HumanMovement : MonoBehaviour
     public AudioAndSoundEffects ASEScript;
 
     public bool CanParry = false;
+
+    public GameObject Attacker;
 
     void Start()
     {
@@ -209,6 +212,7 @@ public class HumanMovement : MonoBehaviour
                         anim.SetBool("Hit", true);
                         ASEScript.CurrentSound = 2;
                         Invoke("PlayerDamageReset", 1.5f);
+                        Attacker = other.gameObject;
                     }
                 }
             }
@@ -228,7 +232,7 @@ public class HumanMovement : MonoBehaviour
                 ASEScript.CurrentSound = 1;
             }
         }
-        
+
         
     }
 

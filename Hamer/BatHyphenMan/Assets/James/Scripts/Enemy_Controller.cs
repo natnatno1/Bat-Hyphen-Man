@@ -28,6 +28,12 @@ public class Enemy_Controller : MonoBehaviour
     public GameObject EnemyVision;
     HumanMovement HumanMovement;
 
+    public bool AudioPlaying;
+    public AudioSource MovementSound;
+    public int CurrentMovementSound;
+    public int PreviousMovementSound;
+    public AudioClip[] MovementClips;
+
     void Start()
     {
         Player = GameObject.Find("HumanForm").GetComponent<Transform>();
@@ -39,7 +45,10 @@ public class Enemy_Controller : MonoBehaviour
         Nav = GetComponent<NavMeshAgent>();
         EnemyActivated = false;
         EnemyCanLoseHealth = true;
-
+        AudioPlaying = false;
+        MovementSound = GetComponent<AudioSource>();
+        AudioClip[] MovementClips = new AudioClip[3];
+        CurrentMovementSound = 0;
         //EnemyVision = GameObject.Find("EnemySight");
     }
 
@@ -104,6 +113,38 @@ public class Enemy_Controller : MonoBehaviour
         {
             Destroy(EnemyHealthBar);
         }
+
+        if (AudioPlaying == false)
+        {
+            MovementSound.Play();
+        }
+
+        if (MovementSound.isPlaying)
+        {
+            if (CurrentMovementSound != PreviousMovementSound)
+            {
+                AudioPlaying = false;
+                PreviousMovementSound = CurrentMovementSound;
+            }
+
+            else if (CurrentMovementSound == PreviousMovementSound)
+            {
+                AudioPlaying = true;
+            }
+        }
+
+        else if (!MovementSound.isPlaying)
+        {
+            AudioPlaying = false;
+            MovementSound.clip = MovementClips[0];
+        }
+
+        MovementSound.clip = MovementClips[CurrentMovementSound];
+
+        if (CurrentMovementSound != PreviousMovementSound)
+        {
+            MovementSound.Play();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -135,6 +176,7 @@ public class Enemy_Controller : MonoBehaviour
             {
                 if (GameObject.Find("HumanForm").GetComponent<HumanMovement>().CanParry == true)
                 {
+                    CurrentMovementSound = 3;
                     Enemy_anim.SetBool("ClashedSword", true);
                     Invoke("StopStaggering", 0.5f);
                     Nav.enabled = false;
@@ -170,6 +212,7 @@ public class Enemy_Controller : MonoBehaviour
 
     void StopStaggering()
     {
+        CurrentMovementSound = 0;
         Enemy_anim.SetBool("IsHit", false);
 
         Enemy_anim.SetBool("ClashedSword", false);

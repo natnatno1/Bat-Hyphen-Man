@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStopsAttacking : StateMachineBehaviour
-{ 
+{
     public Game_Manager GM;
+    public AudioAndSoundEffects ASEScript;
+    public int Sound;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+        ASEScript = GameObject.Find("SoundEffectsController").GetComponent<AudioAndSoundEffects>();
+
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -21,6 +26,8 @@ public class PlayerStopsAttacking : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        ASEScript.CurrentSound = Sound;
+
         if (animator.GetBool("attacking?") == false)
         {
             GM.Attacking = false;
