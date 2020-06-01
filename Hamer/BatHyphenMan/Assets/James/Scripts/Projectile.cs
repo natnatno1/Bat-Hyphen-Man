@@ -15,6 +15,6 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = WaterSpeed * transform.TransformDirection(Vector3.right);
+        GetComponent<Rigidbody>().velocity = WaterSpeed * transform.TransformDirection(Vector3.forward);
     }
 }

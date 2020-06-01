@@ -37,9 +37,7 @@ public class Ranged_Enemy_Controller : MonoBehaviour
         {
             if (hitinfo.collider.gameObject.tag == "Player")
             {
-                //InvokeRepeating("FireProjectile", 0.0f, 8.0f);
-                GameObject Arrow_clone = Instantiate(myPrefab, transform.position + transform.TransformDirection(new Vector3(0f, 1.3f, 0.8f)), transform.rotation);
-
+                InvokeRepeating("FireProjectile", 0f, 4f);
             }
         }
 
