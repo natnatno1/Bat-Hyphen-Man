@@ -218,6 +218,25 @@ public class HumanMovement : MonoBehaviour
             }
         }
 
+        if (other.gameObject.tag == "Water")
+        {
+            if (GM.Blocking == false)
+            {
+                if (PlayerCanLoseHealth == true)
+                {
+                    GM.Health -= 1;
+                    PlayerCanLoseHealth = false;
+                    Invoke("PlayerDamageReset", 1.5f);
+                }
+            }
+
+            if (GM.Blocking == true)
+            {
+                GM.Health -= 0;
+            }
+        }
+
+
         if (other.gameObject.tag == "Item/Health")
         {
             if (GM.Health >= 5)
@@ -240,17 +259,17 @@ public class HumanMovement : MonoBehaviour
     {
     }
 
-     private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
        if (collision.gameObject.tag == "Pushable")
        {
           Pushing = true;
-      }
-      }
+       }
+    }
 
      private void OnCollisionExit(Collision collision)
      {
-         if (collision.gameObject.tag == "Pushable")
+        if (collision.gameObject.tag == "Pushable")
         {
            Pushing = false;
         }

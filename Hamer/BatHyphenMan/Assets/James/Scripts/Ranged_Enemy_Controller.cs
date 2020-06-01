@@ -17,6 +17,9 @@ public class Ranged_Enemy_Controller : MonoBehaviour
     public GameObject myPrefab;
     private bool CanEnemyFire;
 
+    private float NextShotTime;
+    public float CoolDown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,20 +35,50 @@ public class Ranged_Enemy_Controller : MonoBehaviour
     {
         transform.LookAt(Player);
 
-        RaycastHit hitinfo;
-        if (Physics.Raycast(EnemyVision.transform.position, EnemyVision.transform.forward, out hitinfo))
-        {
-            if (hitinfo.collider.gameObject.tag == "Player")
-            {
-                InvokeRepeating("FireProjectile", 0f, 4f);
-            }
-        }
+        AttackTarget();
 
         if (Enemy_Health_Points < 1)
         {
             Enemy_anim.SetBool("IsDead", true);
             Invoke("DestroyEnemy", 3);
         }
+    }
+
+    void AttackTarget()
+    {
+        if (Time.time > NextShotTime)
+        {
+            RaycastHit hitinfo;
+            if (Physics.Raycast(EnemyVision.transform.position, EnemyVision.transform.forward, out hitinfo))
+            {
+                if (hitinfo.collider.gameObject.tag == "Player" || hitinfo.collider.gameObject.tag == "PlayerWeapon");
+                {
+                    FireAtTarget();
+                }
+            }
+        }
+    }
+
+    void FireAtTarget()
+    {
+        GameObject Arrow_clone = Instantiate(myPrefab, transform.position + transform.TransformDirection(new Vector3(0f, 1.3f, 0.8f)), transform.rotation);
+
+        NextShotTime = Time.time + CoolDown;
+    }
+
+    void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    void EnemyDamageReset()
+    {
+        EnemyCanLoseHealth = true;
+    }
+
+    void StopStaggering()
+    {
+        Enemy_anim.SetBool("IsHit", false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -70,25 +103,5 @@ public class Ranged_Enemy_Controller : MonoBehaviour
                 }
             }
         }
-    }
-
-    void FireProjectile()
-    {
-        GameObject Arrow_clone = Instantiate(myPrefab, transform.position + transform.TransformDirection(new Vector3(0f, 1.3f, 0.8f)), transform.rotation);
-    }
-
-    void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-
-    void EnemyDamageReset()
-    {
-        EnemyCanLoseHealth = true;
-    }
-
-    void StopStaggering()
-    {
-        Enemy_anim.SetBool("IsHit", false);
     }
 }

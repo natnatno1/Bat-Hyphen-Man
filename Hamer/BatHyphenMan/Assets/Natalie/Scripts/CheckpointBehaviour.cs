@@ -38,6 +38,7 @@ public class CheckpointBehaviour : MonoBehaviour
 
             else if (GM.RespawnPoint != null)
             {
+                anim.SetBool("triggered", true);
                 Destroy(gameObject.GetComponent<SphereCollider>());
                 Destroy(GM.RespawnPoint.gameObject);
                 GM.RespawnHealth = GM.Health;

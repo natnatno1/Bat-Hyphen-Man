@@ -15,6 +15,7 @@ TagManager:
   - EnemyVision
   - Floor
   - Interactable
+  - Water
   layers:
   - Default
   - TransparentFX

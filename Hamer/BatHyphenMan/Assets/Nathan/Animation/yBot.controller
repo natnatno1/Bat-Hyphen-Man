@@ -704,8 +704,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
-  ASEScript: {fileID: 0}
-  Sound: 15
 --- !u!1101 &-3820027104480052671
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -889,8 +887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
-  ASEScript: {fileID: 0}
-  Sound: 0
 --- !u!114 &-2258637331911246829
 MonoBehaviour:
   m_ObjectHideFlags: 1
