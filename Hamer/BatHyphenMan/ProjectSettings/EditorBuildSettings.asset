@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Natalie/Scenes/StartMenu.unity
+    guid: b7262025747fe2a44abb6bf40440c4f3
+  - enabled: 1
     path: Assets/Natalie/Scenes/BetaBuild.unity
     guid: ceb82fcdf5dcb424d872338054d48ae7
   - enabled: 1
-    path: Assets/Natalie/Scenes/GameOver.unity
-    guid: 69e74ee6b07e42b4aafedbbcc9cdb142
+    path: Assets/Natalie/Scenes/GameOverScreen.unity
+    guid: 93876112d8cf8924a84fce7dc6f234f9
   - enabled: 1
     path: Assets/Natalie/Scenes/Win.unity
     guid: dc5912b77fa7aa74ab357265e0cda644

@@ -85,14 +85,6 @@ public class Game_Manager : MonoBehaviour
         CurrentForm = Camera.main.transform.parent.gameObject;
 
 
-        if (SceneManager.GetSceneByBuildIndex(1) == SceneManager.GetActiveScene())
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadScene(0);
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -137,7 +129,7 @@ public class Game_Manager : MonoBehaviour
 
         if (GameOver == true)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
             Health = 10;
         }
         

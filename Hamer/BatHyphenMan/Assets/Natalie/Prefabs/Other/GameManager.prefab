@@ -228,6 +228,22 @@ MonoBehaviour:
   Inventory: []
   StatusReportTimer: 0
   Daytime: 0
+  Attacking: 0
+  Blocking: 0
+  EnemyAttacking: 0
+  Attack1: 0
+  Attack2: 0
+  Attack3: 0
+  IsBat: 0
+  Player: {fileID: 0}
+  PlayerRot: {fileID: 0}
+  RespawnPoint: {fileID: 0}
+  RespawnHealth: 0
+  CurrentForm: {fileID: 0}
+  GameOver: 0
+  Lives: 0
+  TooLow: 0
+  HealthBar: {fileID: 0}
 --- !u!1 &3494595387872464149
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +256,7 @@ GameObject:
   - component: {fileID: 3494595387872464147}
   - component: {fileID: 3494595387872464148}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: temntSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -83,7 +83,7 @@ public class Door : MonoBehaviour
 
                     if (DoorDetails == "FinalDoor")
                     {
-                        SceneManager.LoadScene(2);
+                        SceneManager.LoadScene(3);
                     }
                 }
 
