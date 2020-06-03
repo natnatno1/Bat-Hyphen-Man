@@ -9,6 +9,7 @@ public class TextPrompts : MonoBehaviour
     public bool HasCollided;
     public string TheTextPrompt = "";
     public int BoxWidth;
+    public int BoxHeight;
     private bool StopGlitching;
     public float DelayTime = 0.5f;
     public Color Colour;
@@ -22,6 +23,14 @@ public class TextPrompts : MonoBehaviour
         StopGlitching = false;
     }
 
+    void Update()
+    {
+        if (Player.activeSelf == false)
+        {
+            HasCollided = false;
+        }
+    }
+
     // Update is called once per frame
     void OnGUI()
     {
@@ -30,7 +39,10 @@ public class TextPrompts : MonoBehaviour
             GUI.skin.box.fontSize = 30;
             GUI.contentColor = Colour;
 
-            GUI.Box(new Rect(140, 200, BoxWidth, 100), TheTextPrompt);
+            GUIStyle boxStyle = "box";
+            boxStyle.wordWrap = true;
+
+            GUI.Box(new Rect(140, 200, BoxWidth, BoxHeight), TheTextPrompt);
 
         }
     }
