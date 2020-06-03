@@ -10,6 +10,9 @@ public class WinScreen : MonoBehaviour
     public Image QuitButton;
     public Image Arrow;
     public bool IsOnPlayAgain;
+    public AudioSource AS;
+    public AudioClip ButtonScrollSound;
+    public AudioClip ButtonSelectSound;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +21,7 @@ public class WinScreen : MonoBehaviour
         QuitButton = transform.Find("Background").transform.Find("QuitButtonImage").GetComponent<Image>();
         Arrow = transform.Find("Background").transform.Find("ArrowImage").GetComponent<Image>();
         IsOnPlayAgain = true;
+        AS = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -30,10 +34,14 @@ public class WinScreen : MonoBehaviour
             {
                 Arrow.rectTransform.anchoredPosition = new Vector3(960, 450, 0);
                 IsOnPlayAgain = false;
+                AS.clip = ButtonScrollSound;
+                AS.Play();
             }
 
             else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
             {
+                AS.clip = ButtonSelectSound;
+                AS.Play();
                 SceneManager.LoadScene(1);
             }
         }
@@ -44,10 +52,14 @@ public class WinScreen : MonoBehaviour
             {
                 Arrow.rectTransform.anchoredPosition = new Vector3(960, 540, 0);
                 IsOnPlayAgain = true;
+                AS.clip = ButtonScrollSound;
+                AS.Play();
             }
 
             else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
             {
+                AS.clip = ButtonSelectSound;
+                AS.Play();
                 Application.Quit();
             }
         }

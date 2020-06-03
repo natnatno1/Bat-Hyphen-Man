@@ -7,8 +7,6 @@ Sound Effects
 - Enemy footstep sounds
 - Pushing sound
 - Push off and land sound
-- Win Sound
-- Lose Sound
+- Win screen music
+- Lose screen music
 - Start menu music
-- Start menu selection sounds
-- Start menu select

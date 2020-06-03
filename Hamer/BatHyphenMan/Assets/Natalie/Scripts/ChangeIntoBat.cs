@@ -31,7 +31,7 @@ public class ChangeIntoBat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 13;
+            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 12;
             PoofPlay = true;
         }
 

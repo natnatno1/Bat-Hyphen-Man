@@ -39,12 +39,12 @@ public class Door : MonoBehaviour
 
                         if (KeyNeeded == "Rusty Key")
                         {
-                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 4;
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 3;
                         }
 
                         else if (KeyNeeded == "Silver Key")
                         {
-                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 8;
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 7;
                         }
                     }
 
@@ -55,13 +55,13 @@ public class Door : MonoBehaviour
 
                         if (KeyNeeded == "Rusty Key")
                         {
-                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 5;
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 4;
 
                         }
 
                         else if (KeyNeeded == "Silver Key")
                         {
-                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 9;
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 8;
                         }
                     }
                     
@@ -71,12 +71,12 @@ public class Door : MonoBehaviour
 
                         if (KeyNeeded == "Rusty Key")
                         {
-                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 6;
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 5;
                         }
 
                         else if (KeyNeeded == "Silver Key")
                         {
-                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 10;
+                            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 9;
                         }
 
                     }
@@ -94,12 +94,12 @@ public class Door : MonoBehaviour
 
                     if (KeyNeeded == "Rusty Key")
                     {
-                        Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 3;
+                        Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 2;
                     }
 
                     else if (KeyNeeded == "Silver Key")
                     {
-                        Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 7;
+                        Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 6;
                     }
                 }
             }

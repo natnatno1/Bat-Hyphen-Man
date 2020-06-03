@@ -32,7 +32,7 @@ public class Item_Pickup : MonoBehaviour
 
             if (ItemName == "Rusty Key" || ItemName == "Silver Key")
             {
-                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 11;
+                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 10;
             }
         }
     }

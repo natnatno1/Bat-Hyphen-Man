@@ -25,7 +25,7 @@ public class CheckpointBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 12;
+            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 11;
 
             if (GM.RespawnPoint == null)
             {
