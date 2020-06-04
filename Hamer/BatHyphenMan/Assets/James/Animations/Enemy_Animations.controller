@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyScript: {fileID: 0}
-  Sound: 2
+  Sound: 1
 --- !u!1101 &7728475206852545718
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

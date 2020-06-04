@@ -5,16 +5,12 @@ using UnityEngine;
 public class PlayerIsAttacking : StateMachineBehaviour
 {
     public Game_Manager GM;
-    public AudioAndSoundEffects ASEScript;
     public int Sound;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
-        ASEScript = GameObject.Find("SoundEffectsController").GetComponent<AudioAndSoundEffects>();
         GM.Attacking = true;
-
-        ASEScript.CurrentSound = Sound;
     }
 
 

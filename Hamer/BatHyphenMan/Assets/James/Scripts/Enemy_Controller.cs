@@ -28,11 +28,11 @@ public class Enemy_Controller : MonoBehaviour
     public GameObject EnemyVision;
     HumanMovement HumanMovement;
 
+    public AudioSource AS;
+    public AudioClip[] EnemySounds;
+    public int CurrentSound;
     public bool AudioPlaying;
-    public AudioSource MovementSound;
-    public int CurrentMovementSound;
-    public int PreviousMovementSound;
-    public AudioClip[] MovementClips;
+    public float AudioClipLength;
 
     void Start()
     {
@@ -45,11 +45,8 @@ public class Enemy_Controller : MonoBehaviour
         Nav = GetComponent<NavMeshAgent>();
         EnemyActivated = false;
         EnemyCanLoseHealth = true;
-        AudioPlaying = false;
-        MovementSound = GetComponent<AudioSource>();
-        AudioClip[] MovementClips = new AudioClip[3];
-        CurrentMovementSound = 0;
-        //EnemyVision = GameObject.Find("EnemySight");
+        AS = GetComponent<AudioSource>();
+        AudioClip[] EnemySounds = new AudioClip[10];
     }
 
     void Update()
@@ -114,36 +111,31 @@ public class Enemy_Controller : MonoBehaviour
             Destroy(EnemyHealthBar);
         }
 
-        if (AudioPlaying == false)
-        {
-            MovementSound.Play();
-        }
+        AS.clip = EnemySounds[CurrentSound];
 
-        if (MovementSound.isPlaying)
+        if (AudioPlaying == true)
         {
-            if (CurrentMovementSound != PreviousMovementSound)
+            AudioClipLength = EnemySounds[CurrentSound].length;
+            AS.Play();
+
+            if (AS.isPlaying == true)
             {
                 AudioPlaying = false;
-                PreviousMovementSound = CurrentMovementSound;
             }
 
-            else if (CurrentMovementSound == PreviousMovementSound)
+        }
+
+        else if (AudioPlaying == false)
+        {
+            if (AudioClipLength > 0)
             {
-                AudioPlaying = true;
+                AudioClipLength -= Time.deltaTime;
             }
-        }
 
-        else if (!MovementSound.isPlaying)
-        {
-            AudioPlaying = false;
-            MovementSound.clip = MovementClips[0];
-        }
-
-        MovementSound.clip = MovementClips[CurrentMovementSound];
-
-        if (CurrentMovementSound != PreviousMovementSound)
-        {
-            MovementSound.Play();
+            else if (AudioClipLength <= 0)
+            {
+                CurrentSound = 0;
+            }
         }
     }
 
@@ -176,7 +168,7 @@ public class Enemy_Controller : MonoBehaviour
             {
                 if (GameObject.Find("HumanForm").GetComponent<HumanMovement>().CanParry == true)
                 {
-                    CurrentMovementSound = 3;
+                    //CurrentMovementSound = 3;
                     Enemy_anim.SetBool("ClashedSword", true);
                     Invoke("StopStaggering", 0.5f);
                     Nav.enabled = false;
@@ -212,7 +204,6 @@ public class Enemy_Controller : MonoBehaviour
 
     void StopStaggering()
     {
-        CurrentMovementSound = 0;
         Enemy_anim.SetBool("IsHit", false);
 
         Enemy_anim.SetBool("ClashedSword", false);
