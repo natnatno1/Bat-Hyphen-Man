@@ -207,6 +207,7 @@ public class HumanMovement : MonoBehaviour
                 {
                     if (PlayerCanLoseHealth == true)
                     {
+                        GM.IsHurt = true;
                         GM.Health -= 1;
                         PlayerCanLoseHealth = false;
                         anim.SetBool("Hit", true);

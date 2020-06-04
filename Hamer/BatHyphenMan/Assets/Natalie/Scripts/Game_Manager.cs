@@ -38,6 +38,8 @@ public class Game_Manager : MonoBehaviour
 
     public Image HealthBar;
 
+    public bool IsHurt;
+
 
 
     //public static Game_Manager instance;
