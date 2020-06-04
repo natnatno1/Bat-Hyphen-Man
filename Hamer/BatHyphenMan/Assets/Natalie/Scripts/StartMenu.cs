@@ -17,9 +17,9 @@ public class StartMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartButton = transform.Find("Background").transform.Find("StartButtonImage").GetComponent<Image>();
-        QuitButton = transform.Find("Background").transform.Find("QuitButtonImage").GetComponent<Image>();
-        Arrow = transform.Find("Background").transform.Find("ArrowImage").GetComponent<Image>();
+        StartButton = transform.Find("StartButtonImage").GetComponent<Image>();
+        QuitButton = transform.Find("QuitButtonImage").GetComponent<Image>();
+        Arrow = transform.Find("ArrowImage").GetComponent<Image>();
         OnStartButton = true;
         AS = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked;
