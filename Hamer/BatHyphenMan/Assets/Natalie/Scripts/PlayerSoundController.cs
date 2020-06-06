@@ -15,6 +15,7 @@ public class PlayerSoundController : MonoBehaviour
     {
         AS = GetComponent<AudioSource>();
         AudioClip[] PlayerSounds = new AudioClip[10];
+        CurrentSound = 0;
     }
 
     // Update is called once per frame

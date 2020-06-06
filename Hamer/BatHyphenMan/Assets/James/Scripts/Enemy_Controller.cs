@@ -34,6 +34,7 @@ public class Enemy_Controller : MonoBehaviour
     public bool AudioPlaying;
     public float AudioClipLength;
 
+
     void Start()
     {
         Player = GameObject.Find("HumanForm").GetComponent<Transform>();
@@ -47,6 +48,7 @@ public class Enemy_Controller : MonoBehaviour
         EnemyCanLoseHealth = true;
         AS = GetComponent<AudioSource>();
         AudioClip[] EnemySounds = new AudioClip[10];
+        CurrentSound = 0;
     }
 
     void Update()
