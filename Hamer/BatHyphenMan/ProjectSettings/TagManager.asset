@@ -16,6 +16,7 @@ TagManager:
   - Floor
   - Interactable
   - Water
+  - EnemyRedHealthBar
   layers:
   - Default
   - TransparentFX

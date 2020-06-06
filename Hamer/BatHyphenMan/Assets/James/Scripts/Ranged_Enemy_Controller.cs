@@ -9,9 +9,10 @@ public class Ranged_Enemy_Controller : MonoBehaviour
     public Animator Enemy_anim;
 
     private bool EnemyCanLoseHealth;
-    public Transform EnemyHealthBar;
     public float HealthBarDropSize;
     public float Enemy_Health_Points;
+    public Transform EnemyHealthBar;
+    public GameObject RedBar2;
 
     public GameObject EnemyVision;
     public GameObject myPrefab;
@@ -19,6 +20,7 @@ public class Ranged_Enemy_Controller : MonoBehaviour
 
     private float NextShotTime;
     public float CoolDown;
+    public bool test;
 
     // Start is called before the first frame update
     void Start()
@@ -33,25 +35,24 @@ public class Ranged_Enemy_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Player);
-
-        AttackTarget();
+        Vector3 targetPosition = new Vector3(Player.transform.position.x,
+                                               transform.position.y,
+                                               Player.transform.position.z);
+        transform.LookAt(targetPosition);
 
         if (Enemy_Health_Points < 1)
         {
             Enemy_anim.SetBool("IsDead", true);
-            Invoke("DestroyEnemy", 3);
+            Destroy(RedBar2);
+            Invoke("DestroyEnemy", 2.5f);
         }
-    }
 
-    void AttackTarget()
-    {
         if (Time.time > NextShotTime)
         {
             RaycastHit hitinfo;
             if (Physics.Raycast(EnemyVision.transform.position, EnemyVision.transform.forward, out hitinfo))
             {
-                if (hitinfo.collider.gameObject.tag == "Player" || hitinfo.collider.gameObject.tag == "PlayerWeapon");
+                if (hitinfo.collider.gameObject.tag == "Player" || hitinfo.collider.gameObject.tag == "PlayerWeapon")
                 {
                     FireAtTarget();
                 }
@@ -61,7 +62,7 @@ public class Ranged_Enemy_Controller : MonoBehaviour
 
     void FireAtTarget()
     {
-        GameObject Arrow_clone = Instantiate(myPrefab, transform.position + transform.TransformDirection(new Vector3(0f, 1.3f, 0.8f)), transform.rotation);
+        GameObject Arrow_clone = Instantiate(myPrefab, transform.position + transform.TransformDirection(new Vector3(-0.3f, 1.1f, 0.9f)), transform.rotation);
 
         NextShotTime = Time.time + CoolDown;
     }

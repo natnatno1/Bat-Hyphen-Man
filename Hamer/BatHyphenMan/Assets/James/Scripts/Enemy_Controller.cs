@@ -15,11 +15,12 @@ public class Enemy_Controller : MonoBehaviour
     private float period;
     private bool InstantAttack;
     private NavMeshAgent Nav;
-    private bool EnemyActivated;
+    public bool EnemyActivated;
 
     public float Enemy_Health_Points;
     public float HealthBarDropSize;
     public Transform EnemyHealthBar;
+    public GameObject RedBar;
     public bool EnemyCanLoseHealth;
 
     public float Min_Hit_Speed;
@@ -105,12 +106,8 @@ public class Enemy_Controller : MonoBehaviour
         if (Enemy_Health_Points < 1)
         {
             Enemy_anim.SetBool("IsDead", true);
+            Destroy(RedBar);
             Invoke("DestroyEnemy", 2);
-        }
-
-        if (EnemyHealthBar.transform.localScale == new Vector3(transform.localScale.x, 0f, transform.localScale.x))
-        {
-            Destroy(EnemyHealthBar);
         }
 
         AS.clip = EnemySounds[CurrentSound];
