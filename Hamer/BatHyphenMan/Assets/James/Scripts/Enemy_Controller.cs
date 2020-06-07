@@ -54,7 +54,10 @@ public class Enemy_Controller : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(Player);
+        Vector3 targetPosition = new Vector3(Player.transform.position.x,
+                                               transform.position.y,
+                                               Player.transform.position.z);
+        transform.LookAt(targetPosition);
 
         if (Vector3.Distance(transform.position, Player.transform.position) <= EnemyChaseMax)
         {
@@ -142,7 +145,7 @@ public class Enemy_Controller : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerWeapon")
         {
-            if (GM.Attacking == true || GM.Attack1 == true || GM.Attack2 == true || GM.Attack3 == true)
+            if (GM.Attack1 == true || GM.Attack2 == true || GM.Attack3 == true)
             {
                 if (EnemyCanLoseHealth == true)
                 {
@@ -150,7 +153,7 @@ public class Enemy_Controller : MonoBehaviour
 
                     Enemy_Health_Points -= 1;
                     EnemyCanLoseHealth = false;
-                    Invoke("EnemyDamageReset", 0.8f);
+                    Invoke("EnemyDamageReset", 1f);
 
                     if (Enemy_Health_Points >= 1)
                     {

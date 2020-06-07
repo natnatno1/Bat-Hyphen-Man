@@ -13,6 +13,6 @@ public class HealthRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.down, 60f * Time.deltaTime);
+        transform.Rotate(Vector3.down, 75f * Time.deltaTime);
     }
 }
