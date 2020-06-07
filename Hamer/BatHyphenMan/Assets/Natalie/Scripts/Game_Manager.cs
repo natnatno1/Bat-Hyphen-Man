@@ -40,6 +40,7 @@ public class Game_Manager : MonoBehaviour
 
     public bool IsHurt;
 
+    public Text LivesText;
 
 
     //public static Game_Manager instance;
@@ -75,6 +76,8 @@ public class Game_Manager : MonoBehaviour
         Lives = 5;
 
         Inventory.Add("");
+
+        LivesText = GameObject.Find("Lives").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -82,10 +85,11 @@ public class Game_Manager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        HealthBar.rectTransform.sizeDelta = new Vector2((15 * Health), 15);
+        HealthBar.rectTransform.sizeDelta = new Vector2((15 * Health), 15.6f);
 
         CurrentForm = Camera.main.transform.parent.gameObject;
 
+        LivesText.text = ("Lives: " + Lives);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
