@@ -42,23 +42,25 @@ public class Game_Manager : MonoBehaviour
 
     public Text LivesText;
 
+    public PlayerSoundController PSCScript;
+
 
     //public static Game_Manager instance;
 
-   // private void Awake()
+    // private void Awake()
     //{
-     //   DontDestroyOnLoad(this.gameObject);
+    //   DontDestroyOnLoad(this.gameObject);
 
-     //   if (instance == null)
-      //  {
-      //      instance = this;
-      ///  }
-      //  else
-      //  {
-      //      Destroy(this.gameObject);
-          //  return;
-       // }
-   // }
+    //   if (instance == null)
+    //  {
+    //      instance = this;
+    ///  }
+    //  else
+    //  {
+    //      Destroy(this.gameObject);
+    //  return;
+    // }
+    // }
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +80,9 @@ public class Game_Manager : MonoBehaviour
         Inventory.Add("");
 
         LivesText = GameObject.Find("Lives").GetComponent<Text>();
+
+
+        PSCScript = GameObject.Find("Vampire").GetComponent<PlayerSoundController>();
     }
 
     // Update is called once per frame
@@ -124,6 +129,9 @@ public class Game_Manager : MonoBehaviour
 
         if (Health <= 0)
         {
+            PSCScript.CurrentSound = 3;
+            PSCScript.AudioPlaying = true;
+
             if (Lives <= 0)
             {
                 GameOver = true;
