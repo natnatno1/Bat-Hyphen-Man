@@ -12,12 +12,14 @@ public class Door : MonoBehaviour
     public bool Unlocked;
     public string DoorDetails;
     public string KeyNeeded;
+    public AudioAndSoundEffects ASEScript;
 
     // Start is called before the first frame update
     void Start()
     {
         Anim = GetComponentInParent<Animator>();
         GM = GameObject.Find("GameManager").GetComponent < Game_Manager>();
+        ASEScript = Camera.main.transform.Find("SoundEffectsController").GetComponent<AudioAndSoundEffects>();
     }
 
     // Update is called once per frame
@@ -40,11 +42,13 @@ public class Door : MonoBehaviour
                         if (KeyNeeded == "Rusty Key")
                         {
                             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 3;
+                            ASEScript.PlayingSound = true;
                         }
 
                         else if (KeyNeeded == "Silver Key")
                         {
                             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 7;
+                            ASEScript.PlayingSound = true;
                         }
                     }
 
@@ -56,12 +60,14 @@ public class Door : MonoBehaviour
                         if (KeyNeeded == "Rusty Key")
                         {
                             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 4;
+                            ASEScript.PlayingSound = true;
 
                         }
 
                         else if (KeyNeeded == "Silver Key")
                         {
                             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 8;
+                            ASEScript.PlayingSound = true;
                         }
                     }
                     
@@ -72,11 +78,13 @@ public class Door : MonoBehaviour
                         if (KeyNeeded == "Rusty Key")
                         {
                             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 5;
+                            ASEScript.PlayingSound = true;
                         }
 
                         else if (KeyNeeded == "Silver Key")
                         {
                             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 9;
+                            ASEScript.PlayingSound = true;
                         }
 
                     }
@@ -95,11 +103,13 @@ public class Door : MonoBehaviour
                     if (KeyNeeded == "Rusty Key")
                     {
                         Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 2;
+                        ASEScript.PlayingSound = true;
                     }
 
                     else if (KeyNeeded == "Silver Key")
                     {
                         Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 6;
+                        ASEScript.PlayingSound = true;
                     }
                 }
             }

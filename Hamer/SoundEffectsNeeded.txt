@@ -4,5 +4,3 @@ Sound Effects
 - Enemy footstep sounds
 - Pushing sound
 - Push off and land sound
-- Bat wings
-- Bat screech

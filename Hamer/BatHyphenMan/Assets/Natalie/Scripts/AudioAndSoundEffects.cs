@@ -10,10 +10,12 @@ public class AudioAndSoundEffects : MonoBehaviour
     public bool PlayingSound;
     public int CurrentSound;
     public AudioSource AS;
+    public float AudioClipLength;
 
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
        // SoundEffects = new AudioClip[10];
         AS = gameObject.GetComponent<AudioSource>();
         PlayingSound = false;
@@ -22,22 +24,51 @@ public class AudioAndSoundEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //  AS.clip = SoundEffects[CurrentSound];
+
+        // if (PlayingSound == false)
+        ///  {
+        //       AS.Play();
+        //   }
+
+        //   if (AS.isPlaying)
+        //   {
+        //        PlayingSound = true;
+        //    }
+
+        //    else if (!AS.isPlaying)
+        //     {
+        //         PlayingSound = false;
+        ///         CurrentSound = 0;
+        //     }
+
         AS.clip = SoundEffects[CurrentSound];
 
-        if (PlayingSound == false)
+        if (PlayingSound == true)
         {
+            AudioClipLength = SoundEffects[CurrentSound].length;
             AS.Play();
+
+            if (AS.isPlaying == true)
+            {
+                PlayingSound = false;
+            }
+
         }
 
-        if (AS.isPlaying)
+        else if (PlayingSound == false)
         {
-            PlayingSound = true;
-        }
+            if (AudioClipLength > 0)
+            {
+                AudioClipLength -= Time.deltaTime;
+            }
 
-        else if (!AS.isPlaying)
-        {
-            PlayingSound = false;
-            CurrentSound = 0;
+            else if (AudioClipLength <= 0)
+            {
+                CurrentSound = 0;
+            }
+
+
         }
     }
 

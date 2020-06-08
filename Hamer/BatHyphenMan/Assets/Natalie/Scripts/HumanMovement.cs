@@ -244,12 +244,14 @@ public class HumanMovement : MonoBehaviour
             {
                 GM.Health = 10;
                 ASEScript.CurrentSound = 1;
+                ASEScript.PlayingSound = true;
             }
 
             else if (GM.Health < 5)
             {
                 GM.Health += 5;
                 ASEScript.CurrentSound = 1;
+                ASEScript.PlayingSound = true;
             }
         }
 

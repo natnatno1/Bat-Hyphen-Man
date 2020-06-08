@@ -7,13 +7,15 @@ public class CheckpointBehaviour : MonoBehaviour
     public Game_Manager GM;
     public GameObject CheckpointMesh;
     public Animator anim;
+    public AudioAndSoundEffects ASEScript;
 
     // Start is called before the first frame update
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
         CheckpointMesh = gameObject.transform.GetChild(0).gameObject;
-        anim = GetComponentInChildren<Animator>(); 
+        anim = GetComponentInChildren<Animator>();
+        ASEScript = Camera.main.gameObject.transform.Find("SoundEffectsController").GetComponent<AudioAndSoundEffects>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class CheckpointBehaviour : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 11;
+            ASEScript.PlayingSound = true;
 
             if (GM.RespawnPoint == null)
             {

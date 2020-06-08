@@ -29,9 +29,8 @@ public class ChangeIntoBat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKey(KeyCode.B))
         {
-            Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 12;
             PoofPlay = true;
         }
 
@@ -71,12 +70,16 @@ public class ChangeIntoBat : MonoBehaviour
             if (GM.IsBat == false)
             {
                 HumanPoof.Play();
+                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 12;
+                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().PlayingSound = true;
                 PoofPlay = false;
             }
 
             else if (GM.IsBat == true)
             {
                 BatPoof.Play();
+                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 12;
+                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().PlayingSound = true;
                 PoofPlay = false;
             }
         }

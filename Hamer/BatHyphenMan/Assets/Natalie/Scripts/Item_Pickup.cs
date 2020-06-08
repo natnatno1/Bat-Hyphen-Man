@@ -7,12 +7,15 @@ public class Item_Pickup : MonoBehaviour
 {
     public string ItemName;
     public Game_Manager GM;
+    public AudioAndSoundEffects ASEScript;
    
     
     // Start is called before the first frame update
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+
+        ASEScript = Camera.main.gameObject.transform.Find("SoundEffectsController").GetComponent<AudioAndSoundEffects>();
     }
 
     // Update is called once per frame
@@ -32,7 +35,8 @@ public class Item_Pickup : MonoBehaviour
 
             if (ItemName == "Rusty Key" || ItemName == "Silver Key")
             {
-                Camera.main.GetComponentInChildren<AudioAndSoundEffects>().CurrentSound = 10;
+                ASEScript.CurrentSound = 10;
+                ASEScript.PlayingSound = true;
             }
         }
     }
