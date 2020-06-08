@@ -182,7 +182,7 @@ public class HumanMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             CanParry = true;
-            Invoke("Parrytimer", 2f);
+            Invoke("Parrytimer", 3f);
         }
         if (Input.GetMouseButtonUp(1))
         {
@@ -200,7 +200,6 @@ public class HumanMovement : MonoBehaviour
                 if (GM.Blocking == true)
                 {
                     GM.Health -= 0;
-
                 }
 
                 if (GM.Blocking == false)
