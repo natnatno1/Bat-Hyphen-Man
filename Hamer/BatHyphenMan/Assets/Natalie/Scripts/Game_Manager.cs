@@ -107,6 +107,10 @@ public class Game_Manager : MonoBehaviour
             {
                 IsBat = true;
             }
+
+            Attack1 = false;
+            Attack2 = false;
+            Attack3 = false;
         }
 
         PlayerRot = Player.transform;
