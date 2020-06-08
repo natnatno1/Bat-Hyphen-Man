@@ -258,6 +258,11 @@ public class HumanMovement : MonoBehaviour
         
     }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        GM.Health -= 5;
+    }
+
     private void OnTriggerExit(Collider other)
     {
     }
