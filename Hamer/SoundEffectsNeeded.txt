@@ -1,9 +1,8 @@
 Sound Effects
 
-- Block enemy sound
-- Enemy die sound
-- Player die sound
 - Footstep sound
 - Enemy footstep sounds
 - Pushing sound
 - Push off and land sound
+- Bat wings
+- Bat screech

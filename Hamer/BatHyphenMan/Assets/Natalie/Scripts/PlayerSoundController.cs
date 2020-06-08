@@ -9,6 +9,7 @@ public class PlayerSoundController : MonoBehaviour
     public int CurrentSound;
     public bool AudioPlaying;
     public float AudioClipLength;
+    public Game_Manager GM;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class PlayerSoundController : MonoBehaviour
         AS = GetComponent<AudioSource>();
         AudioClip[] PlayerSounds = new AudioClip[10];
         CurrentSound = 0;
+        GM = GameObject.Find("GameManager").GetComponent<Game_Manager>();
     }
 
     // Update is called once per frame
@@ -47,5 +49,6 @@ public class PlayerSoundController : MonoBehaviour
                 CurrentSound = 0;
             }
         }
+
     }
 }

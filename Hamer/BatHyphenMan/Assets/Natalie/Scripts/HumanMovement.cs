@@ -211,7 +211,7 @@ public class HumanMovement : MonoBehaviour
                         GM.Health -= 1;
                         PlayerCanLoseHealth = false;
                         anim.SetBool("Hit", true);
-                        ASEScript.CurrentSound = 2;
+                       // ASEScript.CurrentSound = 2;
                         Invoke("PlayerDamageReset", 1.5f);
                         Attacker = other.gameObject;
                     }
