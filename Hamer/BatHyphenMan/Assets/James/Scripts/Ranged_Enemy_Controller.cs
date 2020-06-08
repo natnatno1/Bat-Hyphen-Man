@@ -62,7 +62,7 @@ public class Ranged_Enemy_Controller : MonoBehaviour
 
     void FireAtTarget()
     {
-        GameObject Arrow_clone = Instantiate(myPrefab, transform.position + transform.TransformDirection(new Vector3(-0.3f, 1.1f, 0.9f)), transform.rotation);
+        GameObject Arrow_clone = Instantiate(myPrefab, transform.position + transform.TransformDirection(new Vector3(0f, 1.1f, 0.9f)), transform.rotation);
 
         NextShotTime = Time.time + CoolDown;
     }
