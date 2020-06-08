@@ -42,7 +42,7 @@ public class StartMenu : MonoBehaviour
             {
                 AS.clip = ButtonSelectSound;
                 AS.Play();
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(4);
 ;           }
         }
 
